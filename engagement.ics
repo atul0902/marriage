@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Atul and Astha//Engagement Invitation//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:atul-astha-engagement-20261216@atulastha.com
+DTSTAMP:20261116T183000Z
+DTSTART:20261216T053000Z
+SUMMARY:Atul & Astha's Engagement
+LOCATION:Golden Tulip Hotel\, Station Rd\, Udaiganj\, Husainganj\, Lucknow\, Uttar Pradesh 226001
+DESCRIPTION:Join us to celebrate Atul and Astha's engagement at 11 AM IST.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
