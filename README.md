@@ -1,22 +1,30 @@
-# Atul & Astha — Engagement invitation
+# Atul & Astha — mobile invitation with satin ribbon
 
-16 December 2026 · 11:00 AM IST · Golden Tulip Hotel, Lucknow
+Engagement: 16 December 2026, 11 AM IST, Golden Tulip Hotel, Lucknow.
 
-A static invitation with a wax-seal opening, Lucknow artwork inspired by Rumi Darwaza, countdown, optional music, calendar download and directions.
+Tap the satin bow to untie the ribbon and reveal the invitation. Mobile-first typography, 44–50px touch targets, compressed responsive WebP artwork, keyboard focus management and reduced-motion support are included. No installation or build is needed.
 
-## Publish on GitHub Pages
+## Update your existing GitHub site
 
-Follow SETUP.md. Upload the contents of this folder to your repository root, including the assets folder. No installation or build is required.
+1. Extract the ZIP.
+2. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
+3. Upload index.html, style.css, script.js and the assets folder from this package to the repository root. Replace the existing files with the same names; do not upload the enclosing folder or ZIP itself. Drag the assets folder to preserve its paths.
+4. Commit to main. GitHub Pages will redeploy automatically using your existing main / (root) configuration.
+5. After the deployment finishes in Actions, refresh atulastha.com. If your phone still shows the old version, try a private browser tab or clear that site's cached files.
 
-## Edit the invitation
+There are NO DNS changes for this update. Keep your existing Namecheap records and GitHub Pages custom domain. CNAME is included with the same atulastha.com value. The calendar file is unchanged.
 
-- index.html: wording, names, venue and links
-- style.css: colours, layout and typography
-- script.js: countdown date and interactions
-- engagement.ics: calendar event
-- assets/: artwork and decorative motif
-- CNAME: custom domain
+Required new assets: assets/lucknow-640.webp, assets/lucknow-1024.webp and assets/chikankari.svg. Old PNG files may remain in GitHub; this version does not request them.
 
-The countdown uses 2026-12-16T11:00:00+05:30. The calendar's 05:30 UTC is the same time as 11:00 AM IST.
+## Files
 
-The Lucknow cityscape is artistic, not a picture of the hotel. Artwork edited with the built-in ImageGen tool; the prompt is in artwork-prompt-lucknow.txt. Google Fonts require internet; system fonts are used if unavailable. There is no RSVP collection or backend.
+- index.html — invitation content and satin ribbon markup
+- style.css — responsive layout, silk appearance and release animation
+- script.js — opening/replay, countdown, optional music and sharing
+- engagement.ics — calendar download
+- assets/ — responsive artwork and motif
+- CNAME — existing custom domain
+
+The current artwork was edited with built-in ImageGen; its prompt is retained in artwork-prompt-lucknow.txt. WebP versions are compressed exports of that artwork. The ribbon is made with CSS, with no video download or animation library.
+
+The opening/replay was checked in the browser, with no horizontal overflow at 320, 375, 390, 430, 768 and 1440 pixels. This does not replace a physical iPhone/Android device check. The website itself has not been republished to GitHub by creating this package.
