@@ -33,7 +33,7 @@ const copy=[
  ['.closing > .eyebrow','THE JOY WILL BE GREATER WITH YOU THERE','आपकी उपस्थिति ही हमारा सौभाग्य है'],
  ['.closing h2','Come for the celebration.<br><em>Stay for the memories.</em>','पधारिएगा ज़रूर,<br><em>खुशियों में चार चाँद लगाइएगा।</em>'],
  ['.closing > p:not([class])','Your presence and blessings mean the world to us.','स्नेह, शुभकामनाओं और आशीर्वाद सहित<br>इस नए सफ़र की शुरुआत में हमारा साथ दीजिए।'],
- ['.signature','With love,<br><span>Chauhan and Singh Family</span>','सप्रेम,<br><span>चौहान एवं सिंह परिवार</span>'],
+ ['.signature','With love,<br><span>Chauhan Family and Singh Family</span>','सप्रेम,<br><span>चौहान परिवार एवं सिंह परिवार</span>'],
  ['#share','Share the invitation <span aria-hidden="true">↗</span>','आमंत्रण साझा करें <span aria-hidden="true">↗</span>'],
  ['footer > span','16 DECEMBER 2026 · LUCKNOW','१६ दिसम्बर २०२६ · लखनऊ'],
  ['#replay','Replay the invitation opening','आमंत्रण फिर से खोलें']

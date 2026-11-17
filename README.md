@@ -20,12 +20,12 @@ The supplied transparent monogram replaces the ornament on the opening tag, the 
 
 The English celebration heading reads “For our little hearts who found a home in each other.”. The independently written Hindi invitation is retained.
 
-The closing sign-off reads “With love, Chauhan and Singh Family”, with “सप्रेम, चौहान एवं सिंह परिवार” in Hindi.
+The closing sign-off reads “With love, Chauhan Family and Singh Family”, with “सप्रेम, चौहान परिवार एवं सिंह परिवार” in Hindi.
 
 ## Upload to GitHub
 
 Extract the ZIP. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
-Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-found-home folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
+Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-families folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
 
 No DNS changes are needed. This package has not been published automatically.
 
