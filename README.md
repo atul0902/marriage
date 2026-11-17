@@ -1,4 +1,4 @@
-# Astha first · Open with love
+# Scroll pauses on touch and resumes after 4 seconds
 
 The front-page names now display Astha above Atul, and आस्था above अतुल in Hindi.
 
@@ -6,14 +6,18 @@ A paper tag reading “Open with love” (“प्यार से खोले
 
 Each later section now has a distinct full-width painted scene: a flowering garden for the celebration, a blue lake for the countdown, a Lucknow gateway garden for the venue, and a riverside garden for the closing. Cream overlays keep the text readable; no blur is used. The Lucknow painting is decorative heritage artwork, not a depiction of the hotel.
 
-Mobile edge-to-edge opening, sharp desktop landscape, English/Hindi switching, calendar files, replay and the first-scroll tour are retained. Reduced-motion guests see the invitation immediately after choosing Open, with music started by the same click. Video failure falls through to the invitation.
+Mobile edge-to-edge opening, sharp desktop landscape, English/Hindi switching, calendar files, replay are retained. Reduced-motion guests see the invitation immediately after choosing Open, with music started by the same click. Video failure falls through to the invitation.
 
 The invitation copy starts appearing at 75% of actual video playback. The last 25% of the envelope keeps moving while it crossfades into the invitation. Playback progress drives the transition, so slow loading does not shift the timing.
+
+## Automatic scrolling
+
+After the opening finishes, the front page stays still for four seconds. The invitation then scrolls slowly to the bottom (approximately 70 pixels per second with a gentle start and finish). Touching or clicking stops the automatic motion immediately at the current position. After the guest releases the screen and leaves it idle for four seconds, scrolling resumes from that same position. Further touches, wheel events or native scrolling restart the four-second countdown, including swipe inertia. Long presses keep it paused until released. The small top-right pause button and Escape still keep scrolling paused until the guest explicitly resumes. Switching tabs or changing window focus also pauses it until resumed. Replay starts a new opening and reading delay. Reduced-motion preferences leave scrolling manual unless the guest chooses to start it.
 
 ## Upload to GitHub
 
 Extract the ZIP. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
-Upload ALL contents of this folder into the repository root, replacing matching files. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
+Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-auto-scroll-4s folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
 
 No DNS changes are needed. This package has not been published automatically.
 

@@ -40,6 +40,12 @@ const copy=[
  ['#replay','Replay the invitation opening','आमंत्रण फिर से खोलें']
 ];
 const messages={
+ scrollPauseLabel:['Pause automatic scrolling','अपने आप स्क्रॉल होना रोकें'],
+ scrollPlayLabel:['Start automatic scrolling','अपने आप स्क्रॉल होना शुरू करें'],
+ scrollScheduled:['Automatic scrolling starts after a short reading pause.','पढ़ने के लिए कुछ समय देने के बाद अपने आप स्क्रॉल होगा।'],
+ scrollRunning:['The invitation is scrolling slowly. Touch or scroll to pause for four seconds.','आमंत्रण धीरे-धीरे स्क्रॉल हो रहा है। चार सेकंड के लिए रोकने के लिए स्क्रीन छुएँ या स्क्रॉल करें।'],
+ scrollWaiting:['Scrolling paused here. It resumes after four seconds without interaction.','स्क्रॉल यहीं रुका है। चार सेकंड तक स्क्रीन न छूने पर यह फिर शुरू होगा।'],
+ scrollPaused:['Automatic scrolling is paused. Use this button to continue.','अपने आप स्क्रॉल होना रुका है। जारी रखने के लिए यह बटन दबाएँ।'],
  openingPrompt:['Select the hanging Open tag to unwrap your invitation with music.','संगीत के साथ आमंत्रण खोलने के लिए लटकते टैग को छुएँ।'],
  musicEnabledWaiting:['Music is enabled; your browser may require a tap before playing sound.','संगीत चालू है; आवाज़ शुरू करने के लिए ब्राउज़र में एक बार छूना आवश्यक हो सकता है।'],
  opening:['Unwrapping your invitation…','आपका आमंत्रण खुल रहा है…'],ready:['Your invitation is ready.','आपका आमंत्रण तैयार है।'],
