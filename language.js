@@ -10,7 +10,7 @@ const copy=[
  ['.hero-time','11:00 AM <span>·</span> Golden Tulip Hotel','प्रातः ११:०० बजे <span>·</span> गोल्डन ट्यूलिप होटल'],
  ['.hero-location','Lucknow <span class="location-dot">·</span> The city of love','लखनऊ <span class="location-dot">·</span> मोहब्बत का शहर'],
  ['.intro > .eyebrow','THE BEGINNING OF OUR FOREVER','सगाई का शुभ अवसर'],
- ['.intro h2','<em>For our warm little hearts</em>','स्नेह भरा निमंत्रण<br><em>आपके नाम</em>'],
+ ['.intro h2','<em>For our little hearts that found home in each other.</em>','स्नेह भरा निमंत्रण<br><em>आपके नाम</em>'],
  ['.intro .body-copy','A promise, a ring, and a lifetime of little moments.<br>We would love for you to be part of the first.','आस्था और अतुल के सगाई समारोह में<br>आप सपरिवार सादर आमंत्रित हैं।<br>पधारकर इस शुभ अवसर की शोभा बढ़ाएँ<br>और दोनों को अपना आशीर्वाद दें।'],
  ['.event-details > div:first-child .eyebrow','THE DAY','शुभ दिन'],
  ['.event-details > div:first-child p','Wednesday','बुधवार'],
@@ -33,7 +33,7 @@ const copy=[
  ['.closing > .eyebrow','THE JOY WILL BE GREATER WITH YOU THERE','आपकी उपस्थिति ही हमारा सौभाग्य है'],
  ['.closing h2','Come for the celebration.<br><em>Stay for the memories.</em>','पधारिएगा ज़रूर,<br><em>खुशियों में चार चाँद लगाइएगा।</em>'],
  ['.closing > p:not([class])','Your presence and blessings mean the world to us.','स्नेह, शुभकामनाओं और आशीर्वाद सहित<br>इस नए सफ़र की शुरुआत में हमारा साथ दीजिए।'],
- ['.signature','With love,<br><span>Astha & Atul</span>','आपके आगमन की प्रतीक्षा में,<br><span>आस्था एवं अतुल</span>'],
+ ['.signature','With love,<br><span>Chauhan and Singh Family</span>','सप्रेम,<br><span>चौहान एवं सिंह परिवार</span>'],
  ['#share','Share the invitation <span aria-hidden="true">↗</span>','आमंत्रण साझा करें <span aria-hidden="true">↗</span>'],
  ['footer > span','16 DECEMBER 2026 · LUCKNOW','१६ दिसम्बर २०२६ · लखनऊ'],
  ['#replay','Replay the invitation opening','आमंत्रण फिर से खोलें']
