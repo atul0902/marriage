@@ -1,20 +1,19 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Atul and Astha//Engagement Invitation//HI
+PRODID:-//Astha and Atul//Engagement Invitation//HI
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:atul-astha-engagement-20261216@atulastha.com
 DTSTAMP:20261116T183000Z
 DTSTART:20261216T053000Z
-SUMMARY:अतुल और आस्था का सगाई समा
- रोह
+SUMMARY:आस्था एवं अतुल की सगाई
 LOCATION:गोल्डन ट्यूलिप होटल\, स्ट
  ेशन रोड\, उदयगंज\, हुसैनगंज\, ल
- खनऊ\, उत्तर प्रदेश 226001
-DESCRIPTION:अतुल और आस्था के सगाई सम
- ारोह में प्रातः ११:०० बजे (भा
- रतीय मानक समय) सादर आमंत्रित
-  हैं।
+ खनऊ\, उत्तर प्रदेश २२६००१
+DESCRIPTION:आस्था एवं अतुल के सगाई स
+ मारोह में सपरिवार पधारकर आश
+ ीर्वाद दें। प्रातः ११:०० बजे
+  (भारतीय मानक समय)।
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR

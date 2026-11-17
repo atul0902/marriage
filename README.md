@@ -1,4 +1,4 @@
-# Scroll pauses on touch and resumes after 4 seconds
+# Astha & Atul · Hindi invitation
 
 The front-page names now display Astha above Atul, and आस्था above अतुल in Hindi.
 
@@ -12,12 +12,14 @@ The invitation copy starts appearing at 75% of actual video playback. The last 2
 
 ## Automatic scrolling
 
-After the opening finishes, the front page stays still for four seconds. The invitation then scrolls slowly to the bottom (approximately 70 pixels per second with a gentle start and finish). Touching or clicking stops the automatic motion immediately at the current position. After the guest releases the screen and leaves it idle for four seconds, scrolling resumes from that same position. Further touches, wheel events or native scrolling restart the four-second countdown, including swipe inertia. Long presses keep it paused until released. The small top-right pause button and Escape still keep scrolling paused until the guest explicitly resumes. Switching tabs or changing window focus also pauses it until resumed. Replay starts a new opening and reading delay. Reduced-motion preferences leave scrolling manual unless the guest chooses to start it.
+After the opening finishes, the front page stays still for four seconds. The invitation then scrolls slowly to the bottom (approximately 70 pixels per second with a gentle start and finish). Touching or clicking stops the automatic motion immediately at the current position. After the guest releases the screen and leaves it idle for four seconds, scrolling resumes from that same position. Further touches, wheel events or native scrolling restart the four-second countdown, including swipe inertia. Long presses keep it paused until released. The scroll pause/play button has been removed. Touching pauses in place and four seconds of inactivity resumes scrolling. Escape stops motion until the invitation is replayed. Switching away suspends the tour; returning starts a new four-second reading pause. Replay starts a new opening and reading delay. Reduced-motion preferences leave scrolling manual unless the guest chooses to start it.
+
+The bride’s name appears first in the invitation, page title, sharing text and calendar files. Hindi uses its own warm invitation wording. The city line is “Lucknow — The city of love” / “लखनऊ — मोहब्बत का शहर”. The English/हिन्दी switch and music toggle remain in the top-right corner.
 
 ## Upload to GitHub
 
 Extract the ZIP. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
-Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-auto-scroll-4s folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
+Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-hindi-invite folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
 
 No DNS changes are needed. This package has not been published automatically.
 

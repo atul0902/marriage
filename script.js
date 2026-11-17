@@ -3,19 +3,7 @@ const cover=document.getElementById('cover');
 const openingVideo=document.getElementById('opening-video');
 const pageContent=[document.querySelector('main'),document.querySelector('footer')];
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-const scrollControl=document.getElementById('auto-scroll');
-function renderTour(state){
- const active=['running','scheduled','waiting'].includes(state);
- scrollControl.dataset.state=state;
- scrollControl.setAttribute('aria-pressed',String(active));
- scrollControl.setAttribute('aria-label',locale.t(active?'scrollPauseLabel':'scrollPlayLabel'));
- scrollControl.title=locale.t(active?'scrollPauseLabel':'scrollPlayLabel');
- scrollControl.setAttribute('aria-description',locale.t(state==='scheduled'?'scrollScheduled':state==='running'?'scrollRunning':state==='waiting'?'scrollWaiting':'scrollPaused'));
-}
-const tour=new InvitationTour({onStateChange:renderTour});
-scrollControl.addEventListener('click',()=>{
- if(['running','scheduled','waiting'].includes(tour.state))tour.stop('paused');else tour.play();
-});
+const tour=new InvitationTour();
 const openTag=document.getElementById('open-invitation');
 let invitationActivated=false;
 let opening=false,runId=0,fallbackTimer=0,fadeAnimation=null,revealStarted=false,revealFrame=0;
@@ -47,13 +35,12 @@ async function finishOpening(reason='ended'){
  try{if(!reducedMotion.matches&&cover.animate){if(!fadeAnimation)fadeAnimation=cover.animate([{opacity:1},{opacity:0}],{duration:350,fill:'forwards'});await fadeAnimation.finished.catch(()=>{})}}finally{
   if(id!==runId)return;
   cover.hidden=true;lockPage(false);locale.status('opening-status','ready');
-  scrollControl.disabled=false;
   // Let guests read the cover first, then tour the invitation at an easy pace.
-  if(!reducedMotion.matches&&!document.hidden)tour.autoplay(4000);else tour.stop('paused');
+  if(!reducedMotion.matches){tour.autoplay(4000);if(document.hidden)tour.suspend()}else tour.stop('paused');
  }
 }
 async function startOpening(){
- const id=++runId;scrollControl.disabled=true;tour.stop('idle');cancelRevealFrame();revealStarted=false;opening=true;cover.hidden=false;
+ const id=++runId;tour.stop('idle');cancelRevealFrame();revealStarted=false;opening=true;cover.hidden=false;
  if(fadeAnimation){fadeAnimation.cancel();fadeAnimation=null}
  document.body.classList.remove('invitation-visible');document.body.classList.add('opening-started');openTag.disabled=true;lockPage(true);jumpToTop();
  locale.status('opening-status','opening');
@@ -73,7 +60,7 @@ openingVideo.addEventListener('ended',()=>finishOpening('ended'));
 openingVideo.addEventListener('error',()=>finishOpening('media-unavailable'));
 document.getElementById('replay').addEventListener('click',startOpening);
 window.addEventListener('keydown',e=>{if(e.key==='Escape'&&opening)finishOpening('skipped')});
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&['running','scheduled','waiting'].includes(tour.state))tour.stop('paused')});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)tour.suspend();else tour.restore()});
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 cover.dataset.openingState='waiting';lockPage(true);jumpToTop();locale.status('opening-status','openingPrompt');
 // The hanging tag starts sound and the film directly in the same trusted click.
@@ -130,4 +117,4 @@ function tick(){const delta=Math.max(0,eventTime-Date.now());const total=Math.fl
 document.getElementById('share').addEventListener('click',async()=>{const url=window.location.href.split('#')[0];const status=document.getElementById('share-status');try{if(navigator.share){await navigator.share({title:locale.t('shareTitle'),text:locale.t('shareText'),url})}else if(navigator.clipboard){await navigator.clipboard.writeText(url);locale.status('share-status','copied')}else{status.textContent=url}}catch(error){if(error.name!=='AbortError')locale.status('share-status','shareFallback')}});
 
 
-window.addEventListener('invitation-language-change',()=>{renderMusic();renderTour(tour.state);tick()});
+window.addEventListener('invitation-language-change',()=>{renderMusic();tick()});

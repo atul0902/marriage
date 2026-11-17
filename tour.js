@@ -3,7 +3,7 @@
   class InvitationTour {
     constructor({ win = window, root = document.documentElement, clock = performance, onStateChange = () => {} } = {}) {
       this.win = win; this.root = root; this.clock = clock; this.onStateChange = onStateChange;
-      this.state = 'idle'; this.frame = 0; this.timer = 0;
+      this.state = 'idle'; this.frame = 0; this.timer = 0; this.resumeOnFocus = false;
       this.touching = false; this.pointerHeld = false; this.downwardTouch = false; this.touchY = 0;
       this.win.addEventListener('scroll', () => this.onScroll(), { passive: true });
       this.win.addEventListener('wheel', e => this.onWheel(e), { passive: true });
@@ -17,7 +17,8 @@
       }, { passive: true });
       for (const type of ['pointerup','pointercancel']) this.win.addEventListener(type, () => { this.pointerHeld = false; this.queueResume(); }, { passive: true });
       this.win.addEventListener('keydown', e => this.onKey(e));
-      this.win.addEventListener('blur', () => { if (['running','scheduled','waiting'].includes(this.state)) this.stop('paused'); });
+      this.win.addEventListener('blur', () => this.suspend());
+      this.win.addEventListener('focus', () => this.restore());
       this.setState('idle');
     }
     setState(state) { this.state = state; this.root.dataset.tourState = state; this.onStateChange(state); }
@@ -34,7 +35,15 @@
       }, delay);
     }
     play() { this.arm(); this.start(); }
+    suspend() {
+      if (!['running','scheduled','waiting'].includes(this.state)) return;
+      this.stop('paused'); this.resumeOnFocus = true;
+    }
+    restore() {
+      if (this.resumeOnFocus) this.autoplay(4000);
+    }
     stop(state = 'paused') {
+      this.resumeOnFocus = false;
       this.win.clearTimeout(this.timer); this.timer = 0;
       this.win.cancelAnimationFrame(this.frame); this.frame = 0;
       this.root.classList.remove('tour-running'); this.setState(state);
