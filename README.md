@@ -1,3 +1,17 @@
+# Full-width painting update
+
+The invitation artwork has been extended with built-in ImageGen into a landscape scene. At widths above 600px, the sky, flowers, villas, gardens and sea fill the entire first screen. The old side fade is removed. Phones keep the original portrait composition. The opening video stays the same, with extended scenery filling its outer sides on wider screens.
+
+NEW required asset: assets/opening-wide.webp. Image-generation prompt: OUTPAINT-PROMPT.txt.
+
+Music still attempts immediate autoplay and loops after it starts. If a browser blocks audible autoplay, it requires a real first tap/key gesture. This is a browser restriction, not something website code can reliably override. There is no claim that sound can always play before interaction. The existing first-interaction fallback and footer mute control remain.
+
+Upload this folder's contents to the ROOT of your GitHub repository, including the complete assets folder. Replace matching HTML/CSS/JS files, commit to main and wait for GitHub Pages. No DNS changes are required. This ZIP has not been published automatically.
+
+Verified at 1440×900: extended background covers the full viewport, the previous side mask is disabled, and no horizontal overflow. Verified at 390×844: original portrait artwork remains selected with no horizontal overflow.
+
+--- Previous functionality and media details ---
+
 # Atul & Astha — no top bar, attached instrumental, faster opening
 
 ## This revision

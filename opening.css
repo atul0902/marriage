@@ -16,3 +16,11 @@
 html{scroll-padding-top:24px}
 footer .sound{display:inline-flex;flex-basis:auto;align-items:center;justify-content:center;gap:7px;min-height:44px;min-width:110px;color:var(--ink);font-size:20px;border:1px solid #a7865345;border-radius:24px;padding:4px 14px}
 footer .sound .sound-label{display:inline;font-size:11px;letter-spacing:.4px}
+
+/* Extended landscape scenery fills the sides; mobile retains the portrait. */
+.hero-art:before{display:none!important}
+.hero-art:after{background:linear-gradient(transparent 96%,var(--paper) 100%)}
+@media(min-width:601px){
+ .hero-art{background-image:url('assets/opening-wide.webp');background-size:cover;background-position:center}
+ .opening-cover{background:var(--paper) url('assets/opening-wide.webp') center/cover no-repeat}
+}
