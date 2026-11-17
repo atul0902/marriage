@@ -18,14 +18,14 @@ The bride’s name appears first in the invitation, page title, sharing text and
 
 The supplied transparent monogram replaces the ornament on the opening tag, the front-page flourish, the celebration ornament, the venue emblem, the closing ornament and the footer initials. The letters and gold connecting stroke are isolated on a transparent background in assets/aa-monogram-transparent.png, with the flowers and rectangular background removed. The cutout was prepared with the built-in image editing tool; its prompt is in MONOGRAM-PROMPT.txt.
 
-The English celebration heading reads “For our little hearts that found home in each other.”. The independently written Hindi invitation is retained.
+The English celebration heading reads “For our little hearts who found a home in each other.”. The independently written Hindi invitation is retained.
 
 The closing sign-off reads “With love, Chauhan and Singh Family”, with “सप्रेम, चौहान एवं सिंह परिवार” in Hindi.
 
 ## Upload to GitHub
 
 Extract the ZIP. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
-Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-family-invite folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
+Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-found-home folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
 
 No DNS changes are needed. This package has not been published automatically.
 
