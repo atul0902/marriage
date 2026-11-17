@@ -38,9 +38,10 @@ const copy=[
  ['#replay','Replay the invitation opening','आमंत्रण फिर से खोलें']
 ];
 const messages={
+ musicEnabledWaiting:['Music is enabled; your browser may require a tap before playing sound.','संगीत चालू है; आवाज़ शुरू करने के लिए ब्राउज़र में एक बार छूना आवश्यक हो सकता है।'],
  opening:['Unwrapping your invitation…','आपका आमंत्रण खुल रहा है…'],ready:['Your invitation is ready.','आपका आमंत्रण तैयार है।'],
  musicPlaying:['Background music is playing.','पृष्ठभूमि में संगीत बज रहा है।'],musicWaiting:['Music will start after your first tap or scroll.','संगीत शुरू करने के लिए स्क्रीन को एक बार छुएँ।'],musicPaused:['Background music paused.','संगीत रोक दिया गया है।'],
- musicOn:['Music on','संगीत चालू है'],musicPlay:['Play music','संगीत चलाएँ'],musicPauseLabel:['Pause background music','संगीत रोकें'],musicPlayLabel:['Play background music','संगीत चलाएँ'],
+ musicOn:['Music enabled','संगीत चालू है'],musicPlay:['Play music','संगीत चलाएँ'],musicPauseLabel:['Turn background music off','संगीत बंद करें'],musicPlayLabel:['Turn background music on','संगीत चालू करें'],
  elapsed:['Our beautiful beginning · 16 December 2026','हमारी खूबसूरत शुरुआत · १६ दिसम्बर २०२६'],
  copied:['Invitation link copied.','आमंत्रण का लिंक कॉपी हो गया।'],shareFallback:['You can share this invitation using the link in your address bar.','इस आमंत्रण को साझा करने के लिए ब्राउज़र के पते वाले लिंक का उपयोग करें।'],
  shareTitle:['Atul & Astha — Our Engagement','अतुल और आस्था — हमारी सगाई'],shareText:['Celebrate with us on 16 December 2026, 11 AM, at Golden Tulip Hotel, Lucknow.','१६ दिसम्बर २०२६ को प्रातः ११:०० बजे गोल्डन ट्यूलिप होटल, लखनऊ में हमारे सगाई समारोह में सादर आमंत्रित हैं।']

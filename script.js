@@ -1,25 +1,6 @@
 const locale=window.InvitationLanguage;
 const cover=document.getElementById('cover');
 const openingVideo=document.getElementById('opening-video');
-const ambientVideo=document.getElementById('opening-ambient');
-const desktopOpening=window.matchMedia('(min-width:601px)');
-async function startAmbient(){
- if(!desktopOpening.matches)return;
- try{
-  const source=openingVideo.currentSrc||openingVideo.querySelector('source').src;
-  if(ambientVideo.getAttribute('src')!==source)ambientVideo.src=source;
-  ambientVideo.muted=true;ambientVideo.defaultMuted=true;ambientVideo.playsInline=true;
-  ambientVideo.defaultPlaybackRate=1.3;ambientVideo.playbackRate=1.3;
-  ambientVideo.currentTime=openingVideo.currentTime||0;
-  await ambientVideo.play();
- }catch(error){/* The matching poster is the safe static backdrop. */}
-}
-openingVideo.addEventListener('timeupdate',()=>{
- if(desktopOpening.matches&&ambientVideo.readyState>=2&&Math.abs(ambientVideo.currentTime-openingVideo.currentTime)>.12){
-  try{ambientVideo.currentTime=openingVideo.currentTime}catch{}
- }
-});
-desktopOpening.addEventListener('change',()=>{if(!desktopOpening.matches)ambientVideo.pause();else if(opening)startAmbient()});
 const pageContent=[document.querySelector('main'),document.querySelector('footer')];
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const tour=new InvitationTour();
@@ -29,7 +10,7 @@ function jumpToTop(){document.documentElement.classList.add('motion-immediate');
 async function finishOpening(reason='ended'){
  if(!opening)return;
  const id=runId;opening=false;clearTimeout(fallbackTimer);
- openingVideo.pause();ambientVideo.pause();document.body.classList.add('invitation-visible');cover.dataset.openingState=reason;
+ openingVideo.pause();document.body.classList.add('invitation-visible');cover.dataset.openingState=reason;
  try{if(!reducedMotion.matches&&cover.animate){fadeAnimation=cover.animate([{opacity:1},{opacity:0}],{duration:350,fill:'forwards'});await fadeAnimation.finished.catch(()=>{})}}finally{
   if(id!==runId)return;
   cover.hidden=true;lockPage(false);locale.status('opening-status','ready');
@@ -47,7 +28,7 @@ async function startOpening(){
  openingVideo.defaultPlaybackRate=1.3;openingVideo.playbackRate=1.3;
  if(reducedMotion.matches){finishOpening('reduced-motion');return}
  try{
-  openingVideo.currentTime=0;startAmbient();
+  openingVideo.currentTime=0;
   fallbackTimer=setTimeout(()=>{if(id===runId)finishOpening('timeout')},20000);
   await openingVideo.play();
   if(id===runId&&opening)cover.dataset.openingState='playing';
@@ -66,12 +47,15 @@ const music=document.getElementById('background-music');
 const sound=document.getElementById('sound');
 const musicStatus=document.getElementById('music-status');
 let musicWanted=true,musicAttempt=null;
-music.loop=true;music.volume=.55;
+music.loop=true;music.autoplay=true;music.muted=false;music.defaultMuted=false;music.volume=.55;
 function renderMusic(){
  const playing=!music.paused&&!music.ended;
- sound.setAttribute('aria-pressed',String(playing));
- sound.setAttribute('aria-label',locale.t(playing?'musicPauseLabel':'musicPlayLabel'));
- sound.querySelector('.sound-label').textContent=locale.t(playing?'musicOn':'musicPlay');
+ // The toggle expresses the enabled preference, independently of browser permission.
+ sound.setAttribute('aria-pressed',String(musicWanted));
+ sound.setAttribute('aria-label',locale.t(musicWanted?'musicPauseLabel':'musicPlayLabel'));
+ sound.setAttribute('aria-description',locale.t(playing?'musicPlaying':musicWanted?'musicEnabledWaiting':'musicPaused'));
+ sound.dataset.playback=playing?'playing':musicWanted?'waiting':'off';
+ sound.querySelector('.sound-label').textContent=locale.t(musicWanted?'musicOn':'musicPlay');
 }
 function startMusic(){
  if(!musicWanted||!music.paused)return Promise.resolve();
@@ -94,7 +78,7 @@ for(const type of ['pointerdown','touchend','wheel','keydown']){
  window.addEventListener(type,unlockMusic,{passive:true});
 }
 sound.addEventListener('click',()=>{
- if(!music.paused){musicWanted=false;music.pause();locale.status('music-status','musicPaused');renderMusic()}
+ if(musicWanted){musicWanted=false;music.pause();locale.status('music-status','musicPaused');renderMusic()}
  else{musicWanted=true;startMusic()}
 });
 for(const type of ['playing','pause','ended','error'])music.addEventListener(type,renderMusic);

@@ -25,12 +25,10 @@ footer .sound .sound-label{display:inline;font-size:11px;letter-spacing:.4px}
  .opening-cover{background:var(--paper) url('assets/opening-wide.webp') center/cover no-repeat}
 }
 
-/* A shared, synchronized film backdrop replaces the mismatched static wings. */
-#opening-ambient{display:none}
+/* Sharp extended scenery remains visible throughout the opening. No blur layer. */
 .hero-original{display:none}
 @media(min-width:601px){
- .opening-cover{background:var(--paper) url('assets/envelope-poster.jpg') center/100% 100% no-repeat}
- #opening-ambient{display:block;position:absolute;inset:-3%;width:106%;height:106%;object-fit:fill;filter:blur(24px);pointer-events:none}
+ .opening-cover{background:var(--paper) url('assets/opening-wide.webp') center/cover no-repeat}
  .opening-frame{background:transparent;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
  .hero-original{display:block;position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,calc(100svh * .5625));background:url('assets/opening-end.webp') center/cover no-repeat;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
 }
