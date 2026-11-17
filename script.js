@@ -1,6 +1,6 @@
 const cover=document.getElementById('cover');
 const openingVideo=document.getElementById('opening-video');
-const pageContent=[document.querySelector('header'),document.querySelector('main'),document.querySelector('footer')];
+const pageContent=[document.querySelector('main'),document.querySelector('footer')];
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const tour=new InvitationTour();
 let opening=false,runId=0,fallbackTimer=0,fadeAnimation=null;
@@ -24,7 +24,7 @@ async function startOpening(){
  document.getElementById('opening-status').textContent='Unwrapping your invitation…';
  cover.dataset.openingState='loading';
  openingVideo.muted=true;openingVideo.defaultMuted=true;openingVideo.playsInline=true;
- openingVideo.playbackRate=1;
+ openingVideo.defaultPlaybackRate=1.3;openingVideo.playbackRate=1.3;
  if(reducedMotion.matches){finishOpening('reduced-motion');return}
  try{
   openingVideo.currentTime=0;
@@ -40,13 +40,47 @@ window.addEventListener('keydown',e=>{if(e.key==='Escape'&&opening)finishOpening
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&tour.state==='running')tour.stop('paused')});
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 startOpening();
-let audioContext,masterGain,musicPlaying=false,musicTimer;
+// The selected instrumental loops for the visit. Audible autoplay is attempted;
+// mobile browsers that require activation are unlocked by the first real gesture.
+const music=document.getElementById('background-music');
 const sound=document.getElementById('sound');
-function setSoundState(){sound.setAttribute('aria-pressed',String(musicPlaying));sound.setAttribute('aria-label',musicPlaying?'Pause gentle background music':'Play gentle background music');sound.querySelector('.sound-label').textContent=musicPlaying?'Music on':'Music off';}
-function playPhrase(){if(!musicPlaying)return;const notes=[261.63,329.63,392,523.25,440,349.23,293.66,392];notes.forEach((freq,i)=>{const t=audioContext.currentTime+i*.85;const osc=audioContext.createOscillator();const gain=audioContext.createGain();osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(0,t);gain.gain.linearRampToValueAtTime(.09,t+.06);gain.gain.exponentialRampToValueAtTime(.001,t+2.8);osc.connect(gain);gain.connect(masterGain);osc.start(t);osc.stop(t+3)});musicTimer=setTimeout(playPhrase,6800)}
-async function toggleMusic(){try{if(!audioContext){const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio){sound.querySelector('.sound-label').textContent='Unavailable';return}audioContext=new Audio();masterGain=audioContext.createGain();masterGain.gain.value=.35;masterGain.connect(audioContext.destination)}musicPlaying=!musicPlaying;if(musicPlaying){await audioContext.resume();playPhrase()}else{clearTimeout(musicTimer);await audioContext.suspend()}setSoundState()}catch{musicPlaying=false;setSoundState()}}
-sound.addEventListener('click',toggleMusic);
+const musicStatus=document.getElementById('music-status');
+let musicWanted=true,musicAttempt=null;
+music.loop=true;music.volume=.55;
+function renderMusic(){
+ const playing=!music.paused&&!music.ended;
+ sound.setAttribute('aria-pressed',String(playing));
+ sound.setAttribute('aria-label',playing?'Pause background music':'Play background music');
+ sound.querySelector('.sound-label').textContent=playing?'Music on':'Play music';
+}
+function startMusic(){
+ if(!musicWanted||!music.paused)return Promise.resolve();
+ if(musicAttempt)return musicAttempt;
+ try{
+  musicAttempt=Promise.resolve(music.play()).then(()=>{
+   if(!musicWanted)music.pause();
+   musicStatus.textContent=musicWanted?'Background music is playing.':'';
+  }).catch(()=>{
+   if(musicWanted)musicStatus.textContent='Music will start after your first tap or scroll.';
+  }).finally(()=>{musicAttempt=null;renderMusic()});
+ }catch(error){musicAttempt=null;renderMusic()}
+ return musicAttempt;
+}
+function unlockMusic(event){
+ if(event.target?.closest?.('#sound'))return;
+ if(musicWanted&&music.paused)startMusic();
+}
+for(const type of ['pointerdown','touchend','wheel','keydown']){
+ window.addEventListener(type,unlockMusic,{passive:true});
+}
+sound.addEventListener('click',()=>{
+ if(!music.paused){musicWanted=false;music.pause();musicStatus.textContent='Background music paused.';renderMusic()}
+ else{musicWanted=true;startMusic()}
+});
+for(const type of ['playing','pause','ended','error'])music.addEventListener(type,renderMusic);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&musicWanted&&music.paused)startMusic()});
+renderMusic();startMusic();
 const eventTime=new Date('2026-12-16T11:00:00+05:30').getTime();
 function tick(){const delta=Math.max(0,eventTime-Date.now());const total=Math.floor(delta/1000);const values={days:Math.floor(total/86400),hours:Math.floor(total/3600)%24,minutes:Math.floor(total/60)%60,seconds:total%60};Object.entries(values).forEach(([id,value])=>document.getElementById(id).textContent=String(value).padStart(2,'0'));if(delta===0)document.getElementById('countdown-note').textContent='Our beautiful beginning · 16 December 2026'}tick();setInterval(tick,1000);
 document.getElementById('share').addEventListener('click',async()=>{const url=window.location.href.split('#')[0];const status=document.getElementById('share-status');try{if(navigator.share){await navigator.share({title:'Atul & Astha — Our Engagement',text:'Celebrate with us on 16 December 2026, 11 AM, at Golden Tulip Hotel, Lucknow.',url})}else if(navigator.clipboard){await navigator.clipboard.writeText(url);status.textContent='Invitation link copied.'}else{status.textContent=url}}catch(error){if(error.name!=='AbortError')status.textContent='You can share this invitation using the link in your address bar.'}});
-document.addEventListener('visibilitychange',()=>{if(audioContext&&musicPlaying){if(document.hidden)audioContext.suspend();else audioContext.resume()}});
+

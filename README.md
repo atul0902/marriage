@@ -1,36 +1,27 @@
-# Atul & Astha — reference opening + fixed scroll tour
+# Atul & Astha — no top bar, attached instrumental, faster opening
 
-Engagement: 16 December 2026 · 11 AM IST · Golden Tulip Hotel, Lucknow.
+## This revision
 
-## What changed
+- Entire top navigation bar removed from the HTML. The illustration now reaches the top edge.
+- Your supplied Kuch Kuch Hota Hai Instrumental.mp3 is included as assets/engagement-instrumental.mp3 and loops for the visit.
+- Music is wanted on by default. The site attempts audible playback on load. Browsers that block audible autoplay require a first tap/key gesture; the site retries on that interaction. A scroll also triggers an attempt, but browsers do not all treat a wheel event as permission for audio. No website can guarantee audible autoplay before a guest interaction on every phone.
+- The small music control is in the footer. A guest can pause and resume it. After pausing, later taps do not switch it back on. Music is not deliberately paused just because the guest switches tabs; the device/browser may still suspend background media.
+- Same reference opening, now at 1.3x speed (about 6.2 seconds rather than 8 seconds).
+- The first-scroll tour remains in place.
 
-The opening now plays the actual eight-second envelope/ribbon film served by the public Fresco demo, at its original speed. It no longer tries to imitate that sequence with generated fabric pieces or CSS paper flaps. The final blank frame is retained as the invitation background, so your own names and details fade into the same scene.
+## Update GitHub
 
-It starts automatically, muted and inline, without an opening button. The invitation stays on its front page after the film ends. Replay is available in the footer. Browsers that block muted autoplay, or users who request reduced motion, receive the invitation without getting stuck behind the opening.
+Extract this ZIP. Open https://github.com/atul0902/marriage → Add file → Upload files.
+Upload index.html, style.css, opening.css, script.js, tour.js and the complete assets folder to the repository root, replacing existing files. Include the new assets/engagement-instrumental.mp3.
+Commit to main and wait for GitHub Pages deployment in Actions. Then refresh atulastha.com (or open a private browser tab if cached).
 
-## First-scroll fix
+No Namecheap/DNS changes. The domain file and calendar are unchanged. Old ribbon files may remain; this version does not load them.
 
-The first downward wheel, swipe, keyboard scroll or native page-scroll starts a slow tour to the bottom after that gesture settles. The controller waits for touchend and native momentum; it does not prevent the initial touch gesture or cancel itself on its own scroll events.
+## Verification
 
-The tour uses a numeric scrollTo call with CSS smooth-scrolling disabled while animating, avoiding mobile-browser differences with the earlier instant option. A fresh touch, mouse wheel, click or key pauses it so a guest can take control. Replay resets and re-arms it.
+Browser checked: zero header elements, playbackRate 1.3, correct attached audio source, loop enabled, first-tap audio playback, footer pause control and no console errors. HTML/CSS/media paths and ZIP integrity checked. The supplied MP3 is copied unchanged.
 
-## Upload this revision to GitHub
-
-Open https://github.com/atul0902/marriage → Add file → Upload files.
-Upload these files to the repository root, replacing older copies:
-
-- index.html
-- style.css
-- opening.css
-- script.js
-- tour.js (NEW — essential for the scroll fix)
-- assets folder (NEW video, poster and final frame must be included)
-
-Commit to main, wait for Pages deployment in Actions, then open atulastha.com. No Namecheap/DNS changes are needed. If an old revision remains cached, try a private browser tab. The HTML references versioned CSS and JavaScript for this update.
-
-CNAME remains atulastha.com and the calendar is unchanged. The old ribbon.js and old generated artwork may remain in your repository; this version does not load them.
-
-This folder and ZIP are ready for upload. Creating them does not publish to GitHub.
+The files are ready to upload; creating the ZIP does not update your live GitHub site.
 
 ## Media provenance
 
@@ -41,6 +32,5 @@ Poster: https://fresco-template.thedigitalyes.com/assets/envelope-poster-dG0TpNI
 
 The reference opening media is reused to match the specific opening requested; it is not claimed as original generated artwork. The final frame is an export from that same animation. Personal event content and surrounding invitation code belong to this project.
 
-## Verification
 
-Seven controller integration checks cover wheel momentum, touch/pointer sequencing, native-scroll fallback, keyboard activation, stopping on new input, re-arming and reaching the exact document bottom. Browser checks additionally verify automatic video playback, completion, idle front page and continuous scroll through the full page. Physical Safari/Android touch should be reviewed before sending widely.
+Music source: user-supplied Kuch Kuch Hota Hai Instrumental.mp3.

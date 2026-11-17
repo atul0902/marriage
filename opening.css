@@ -2,7 +2,7 @@
 .opening-cover{position:fixed;inset:0;z-index:30;background:var(--paper);pointer-events:none;overflow:hidden}.opening-cover[hidden]{display:none}
 .opening-frame{width:min(100%,calc(100svh * .5625));height:100%;margin:auto;position:relative;background:#f2ece5}
 #opening-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.cover-active header{opacity:0}.cover-active .hero-content{opacity:0;transform:translateY(8px)}.hero-content{transition:opacity .7s,transform .8s}.invitation-visible.cover-active .hero-content{opacity:1;transform:none}.invitation-visible.cover-active header{opacity:1}
+.cover-active .hero-content{opacity:0;transform:translateY(8px)}.hero-content{transition:opacity .7s,transform .8s}.invitation-visible.cover-active .hero-content{opacity:1;transform:none}
 .hero{height:100svh;min-height:0;max-height:none}.hero-art{background-image:var(--art);background-size:auto 100%;background-position:center}
 .hero-content{height:100%;padding:100px 25px 16svh;display:flex;flex-direction:column;justify-content:center;align-items:center;max-width:440px;margin:auto}
 .hero .eyebrow{font-size:8px;letter-spacing:1.4px}.hero .invite-line{font-size:19px;line-height:1.4;margin:16px 0 4px}.hero h1{font-size:clamp(42px,7.3svh,66px);line-height:.9;margin:18px 0 4px}.hero h1 span{display:block;font-size:.5em;line-height:1.2;margin:0}.hero .flourish{font-size:24px;line-height:1.25}.hero-date{font-size:11px;letter-spacing:2px;margin:13px 0 4px}.hero-time{font-size:11px}.hero-location{font-size:18px;margin:9px 0}
@@ -11,3 +11,8 @@
 @media(max-width:600px){.hero-art{background-size:cover}.hero .hero-content{padding:75px 35px 13svh}.hero-art:before{display:none}}
 @media(max-height:650px){.hero .hero-content{padding-top:60px;padding-bottom:12svh}.hero .invite-line{font-size:16px;margin-top:10px}.hero h1{font-size:42px;margin-top:12px}.hero .flourish{font-size:18px}.hero .eyebrow{font-size:7px}.hero-date{font-size:10px;margin-top:9px}.hero-time{font-size:10px}.hero-location{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.hero-content{transition:none}}
+
+/* No header/navigation bar: artwork starts at the top edge. */
+html{scroll-padding-top:24px}
+footer .sound{display:inline-flex;flex-basis:auto;align-items:center;justify-content:center;gap:7px;min-height:44px;min-width:110px;color:var(--ink);font-size:20px;border:1px solid #a7865345;border-radius:24px;padding:4px 14px}
+footer .sound .sound-label{display:inline;font-size:11px;letter-spacing:.4px}
