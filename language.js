@@ -35,7 +35,6 @@ const copy=[
  ['.closing > p:not([class])','Your presence and blessings mean the world to us.','स्नेह, शुभकामनाओं और आशीर्वाद सहित<br>इस नए सफ़र की शुरुआत में हमारा साथ दीजिए।'],
  ['.signature','With love,<br><span>Astha & Atul</span>','आपके आगमन की प्रतीक्षा में,<br><span>आस्था एवं अतुल</span>'],
  ['#share','Share the invitation <span aria-hidden="true">↗</span>','आमंत्रण साझा करें <span aria-hidden="true">↗</span>'],
- ['footer > a','A <i>&</i> A','आ <i>और</i> अ'],
  ['footer > span','16 DECEMBER 2026 · LUCKNOW','१६ दिसम्बर २०२६ · लखनऊ'],
  ['#replay','Replay the invitation opening','आमंत्रण फिर से खोलें']
 ];

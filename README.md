@@ -1,4 +1,4 @@
-# Astha & Atul · Hindi invitation
+# Astha & Atul · Monogram opening tag
 
 The front-page names now display Astha above Atul, and आस्था above अतुल in Hindi.
 
@@ -16,10 +16,12 @@ After the opening finishes, the front page stays still for four seconds. The inv
 
 The bride’s name appears first in the invitation, page title, sharing text and calendar files. Hindi uses its own warm invitation wording. The city line is “Lucknow — The city of love” / “लखनऊ — मोहब्बत का शहर”. The English/हिन्दी switch and music toggle remain in the top-right corner.
 
+The supplied transparent monogram replaces the ornament on the opening tag, the front-page flourish, the celebration ornament, the venue emblem, the closing ornament and the footer initials. The letters and gold connecting stroke are isolated on a transparent background in assets/aa-monogram-transparent.png, with the flowers and rectangular background removed. The cutout was prepared with the built-in image editing tool; its prompt is in MONOGRAM-PROMPT.txt.
+
 ## Upload to GitHub
 
 Extract the ZIP. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
-Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-hindi-invite folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
+Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-aa-monogram folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
 
 No DNS changes are needed. This package has not been published automatically.
 

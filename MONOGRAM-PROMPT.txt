@@ -1,0 +1,2 @@
+Built-in image editing tool. Input: user-supplied monogram JPG.
+Keep only the dark Latin A and Devanagari आ letterforms and their connecting gold swoosh. Preserve the letterforms and proportions. Remove the cream background, corner framing, flowers, stems, leaves and diamonds. Use genuine transparency throughout the background and letter counters. No shadows, border, rectangular patch or new lettering. Center the monogram tightly with a small margin.
