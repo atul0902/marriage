@@ -22,10 +22,12 @@ The English celebration heading reads “For our little hearts that found home i
 
 The closing sign-off reads “With love, Chauhan Family and Singh Family”, with “सप्रेम, चौहान परिवार एवं सिंह परिवार” in Hindi.
 
+The engagement begins at 10:30 AM IST on 16 December 2026 (प्रातः १०:३० बजे). This time is used in both languages, sharing text, the countdown and calendar downloads.
+
 ## Upload to GitHub
 
 Extract the ZIP. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
-Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-hearts-final folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
+Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-1030am folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
 
 No DNS changes are needed. This package has not been published automatically.
 

@@ -112,7 +112,7 @@ openTag.addEventListener('click',()=>{
  startMusic();
  startOpening();
 });
-const eventTime=new Date('2026-12-16T11:00:00+05:30').getTime();
+const eventTime=new Date('2026-12-16T10:30:00+05:30').getTime();
 function tick(){const delta=Math.max(0,eventTime-Date.now());const total=Math.floor(delta/1000);const values={days:Math.floor(total/86400),hours:Math.floor(total/3600)%24,minutes:Math.floor(total/60)%60,seconds:total%60};Object.entries(values).forEach(([id,value])=>document.getElementById(id).textContent=locale.number(value));if(delta===0)locale.status('countdown-note','elapsed')}tick();setInterval(tick,1000);
 document.getElementById('share').addEventListener('click',async()=>{const url=window.location.href.split('#')[0];const status=document.getElementById('share-status');try{if(navigator.share){await navigator.share({title:locale.t('shareTitle'),text:locale.t('shareText'),url})}else if(navigator.clipboard){await navigator.clipboard.writeText(url);locale.status('share-status','copied')}else{status.textContent=url}}catch(error){if(error.name!=='AbortError')locale.status('share-status','shareFallback')}});
 

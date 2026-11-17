@@ -7,7 +7,7 @@ const copy=[
  ['.hero .invite-line','With love, we invite you<br>to celebrate our engagement','सगाई की इस मंगल बेला में<br>सपरिवार पधारकर आशीर्वाद दें।'],
  ['.hero h1','Astha <span>&</span> Atul','आस्था <span>और</span> अतुल'],
  ['.hero-date','16 DECEMBER 2026','१६ दिसम्बर २०२६'],
- ['.hero-time','11:00 AM <span>·</span> Golden Tulip Hotel','प्रातः ११:०० बजे <span>·</span> गोल्डन ट्यूलिप होटल'],
+ ['.hero-time','10:30 AM <span>·</span> Golden Tulip Hotel','प्रातः १०:३० बजे <span>·</span> गोल्डन ट्यूलिप होटल'],
  ['.hero-location','Lucknow <span class="location-dot">·</span> The city of love','लखनऊ <span class="location-dot">·</span> मोहब्बत का शहर'],
  ['.intro > .eyebrow','THE BEGINNING OF OUR FOREVER','सगाई का शुभ अवसर'],
  ['.intro h2','<em>For our little hearts that found home in each other.</em>','स्नेह भरा निमंत्रण<br><em>आपके नाम</em>'],
@@ -16,7 +16,7 @@ const copy=[
  ['.event-details > div:first-child p','Wednesday','बुधवार'],
  ['.event-details > div:first-child > span:last-child','16 December 2026','१६ दिसम्बर २०२६'],
  ['.event-details > div:last-child .eyebrow','THE TIME','शुभ समय'],
- ['.event-details > div:last-child p','11:00 AM','प्रातः ११:०० बजे'],
+ ['.event-details > div:last-child p','10:30 AM','प्रातः १०:३० बजे'],
  ['.event-details > div:last-child > span:last-child','Indian Standard Time','भारतीय मानक समय'],
  ['a[download]','Add to your calendar <span aria-hidden="true">↗</span>','अपने कैलेंडर में जोड़ें <span aria-hidden="true">↗</span>'],
  ['.countdown-section .eyebrow','EVERY MOMENT BRINGS US CLOSER','मिलन की शुभ घड़ी की प्रतीक्षा'],
@@ -28,7 +28,7 @@ const copy=[
  ['.venue-label','THE ENGAGEMENT','सगाई समारोह'],
  ['.venue h3','Golden Tulip Hotel','गोल्डन ट्यूलिप होटल'],
  ['.venue address','Station Rd, Udaiganj, Husainganj<br>Lucknow, Uttar Pradesh 226001','स्टेशन रोड, उदयगंज, हुसैनगंज<br>लखनऊ, उत्तर प्रदेश २२६००१'],
- ['.venue-time','16 December 2026 <span>·</span> 11:00 AM','१६ दिसम्बर २०२६ <span>·</span> प्रातः ११:०० बजे'],
+ ['.venue-time','16 December 2026 <span>·</span> 10:30 AM','१६ दिसम्बर २०२६ <span>·</span> प्रातः १०:३० बजे'],
  ['.venue .button','Get directions <span aria-hidden="true">↗</span>','रास्ता देखें <span aria-hidden="true">↗</span>'],
  ['.closing > .eyebrow','THE JOY WILL BE GREATER WITH YOU THERE','आपकी उपस्थिति ही हमारा सौभाग्य है'],
  ['.closing h2','Come for the celebration.<br><em>Stay for the memories.</em>','पधारिएगा ज़रूर,<br><em>खुशियों में चार चाँद लगाइएगा।</em>'],
@@ -46,7 +46,7 @@ const messages={
  musicOn:['Music enabled','संगीत चालू है'],musicPlay:['Play music','संगीत चलाएँ'],musicPauseLabel:['Turn background music off','संगीत बंद करें'],musicPlayLabel:['Turn background music on','संगीत चालू करें'],
  elapsed:['Our beautiful beginning · 16 December 2026','हमारी खूबसूरत शुरुआत · १६ दिसम्बर २०२६'],
  copied:['Invitation link copied.','आमंत्रण का लिंक कॉपी हो गया।'],shareFallback:['You can share this invitation using the link in your address bar.','इस आमंत्रण को साझा करने के लिए ब्राउज़र के पते वाले लिंक का उपयोग करें।'],
- shareTitle:['Astha & Atul — Our Engagement','आस्था और अतुल — हमारी सगाई'],shareText:['Celebrate with us on 16 December 2026, 11 AM, at Golden Tulip Hotel, Lucknow.','आस्था एवं अतुल के सगाई समारोह में सपरिवार पधारिए। १६ दिसम्बर २०२६, प्रातः ११:०० बजे, गोल्डन ट्यूलिप होटल, लखनऊ। आपकी उपस्थिति हमारा सौभाग्य होगी।']
+ shareTitle:['Astha & Atul — Our Engagement','आस्था और अतुल — हमारी सगाई'],shareText:['Celebrate with us on 16 December 2026, 10:30 AM, at Golden Tulip Hotel, Lucknow.','आस्था एवं अतुल के सगाई समारोह में सपरिवार पधारिए। १६ दिसम्बर २०२६, प्रातः १०:३० बजे, गोल्डन ट्यूलिप होटल, लखनऊ। आपकी उपस्थिति हमारा सौभाग्य होगी।']
 };
 let language='en';try{if(localStorage.getItem('invitation-language')==='hi')language='hi'}catch{}
 function t(key){return messages[key]?.[language==='hi'?1:0]??key}
@@ -55,7 +55,7 @@ function apply(next){
  language=next==='hi'?'hi':'en';const hi=language==='hi';document.documentElement.lang=language;
  copy.forEach(([selector,en,hindi])=>document.querySelectorAll(selector).forEach(el=>{el.innerHTML=hi?hindi:en}));
  document.title=hi?'आस्था और अतुल · १६ दिसम्बर २०२६':'Astha & Atul · 16 December 2026';
- document.querySelector('meta[name="description"]').content=hi?'आस्था एवं अतुल के सगाई समारोह में सपरिवार पधारकर आशीर्वाद दें। १६ दिसम्बर २०२६, प्रातः ११:०० बजे, गोल्डन ट्यूलिप होटल, लखनऊ।':'Join us to celebrate the engagement of Astha and Atul on 16 December 2026 at 11 AM, Golden Tulip Hotel, Lucknow.';
+ document.querySelector('meta[name="description"]').content=hi?'आस्था एवं अतुल के सगाई समारोह में सपरिवार पधारकर आशीर्वाद दें। १६ दिसम्बर २०२६, प्रातः १०:३० बजे, गोल्डन ट्यूलिप होटल, लखनऊ।':'Join us to celebrate the engagement of Astha and Atul on 16 December 2026 at 10:30 AM, Golden Tulip Hotel, Lucknow.';
  document.querySelector('.hero-art').setAttribute('aria-label',hi?'फूलों और हाथ से चित्रित इतालवी समुद्र तट से सजा आमंत्रण':'Painted Italian coast with blossom branches and an ivory invitation center');
  document.getElementById('open-invitation').setAttribute('aria-label',hi?'प्यार से खोलें; आमंत्रण और संगीत शुरू करें':'Open with love; start your invitation and music');
  document.getElementById('countdown').setAttribute('aria-label',hi?'हमारी सगाई तक शेष समय':'Time until our engagement');
