@@ -1,4 +1,6 @@
-# Open with love · early text reveal
+# Astha first · Open with love
+
+The front-page names now display Astha above Atul, and आस्था above अतुल in Hindi.
 
 A paper tag reading “Open with love” (“प्यार से खोलें” in Hindi) hangs from the ribbon. The envelope stays closed until the guest clicks or taps Open (खोलें in Hindi). That trusted click starts the supplied instrumental and the original ribbon video together. No opening autoplay or unrelated page tap is needed. The music loops and the small music control remains available. An intentional music-off choice is respected.
 

@@ -5,7 +5,7 @@ const copy=[
  ['#open-caption','with love','प्यार से'],
  ['.hero .lucknow-welcome','TOGETHER WITH OUR FAMILIES','परिवार सहित स्नेहिल आमंत्रण'],
  ['.hero .invite-line','With love, we invite you<br>to celebrate our engagement','हमारी सगाई के शुभ अवसर पर<br>आप सादर आमंत्रित हैं।'],
- ['.hero h1','Atul <span>&</span> Astha','अतुल <span>और</span> आस्था'],
+ ['.hero h1','Astha <span>&</span> Atul','आस्था <span>और</span> अतुल'],
  ['.hero-date','16 DECEMBER 2026','१६ दिसम्बर २०२६'],
  ['.hero-time','11:00 AM <span>·</span> Golden Tulip Hotel','प्रातः ११:०० बजे <span>·</span> गोल्डन ट्यूलिप होटल'],
  ['.hero-location','Lucknow <span class="location-dot">·</span> The city of tehzeeb','लखनऊ <span class="location-dot">·</span> तहज़ीब का शहर'],
