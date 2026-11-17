@@ -10,7 +10,7 @@ const copy=[
  ['.hero-time','11:00 AM <span>·</span> Golden Tulip Hotel','प्रातः ११:०० बजे <span>·</span> गोल्डन ट्यूलिप होटल'],
  ['.hero-location','Lucknow <span class="location-dot">·</span> The city of love','लखनऊ <span class="location-dot">·</span> मोहब्बत का शहर'],
  ['.intro > .eyebrow','THE BEGINNING OF OUR FOREVER','सगाई का शुभ अवसर'],
- ['.intro h2','<em>For our little hearts who found a home in each other.</em>','स्नेह भरा निमंत्रण<br><em>आपके नाम</em>'],
+ ['.intro h2','<em>For our little hearts that found home in each other.</em>','स्नेह भरा निमंत्रण<br><em>आपके नाम</em>'],
  ['.intro .body-copy','A promise, a ring, and a lifetime of little moments.<br>We would love for you to be part of the first.','आस्था और अतुल के सगाई समारोह में<br>आप सपरिवार सादर आमंत्रित हैं।<br>पधारकर इस शुभ अवसर की शोभा बढ़ाएँ<br>और दोनों को अपना आशीर्वाद दें।'],
  ['.event-details > div:first-child .eyebrow','THE DAY','शुभ दिन'],
  ['.event-details > div:first-child p','Wednesday','बुधवार'],
