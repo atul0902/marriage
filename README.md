@@ -1,25 +1,23 @@
-# Sharp landscape + music enabled by default
+# Open with love · early text reveal
 
-## Current version
+A paper tag reading “Open with love” (“प्यार से खोलें” in Hindi) hangs from the ribbon. The envelope stays closed until the guest clicks or taps Open (खोलें in Hindi). That trusted click starts the supplied instrumental and the original ribbon video together. No opening autoplay or unrelated page tap is needed. The music loops and the small music control remains available. An intentional music-off choice is respected.
 
-The sharp extended painting fills the desktop sides before, during and after the original envelope video. The blurred ambient video is removed from both HTML and JavaScript. The original film edges are softly feathered into the sharp painted landscape; no blur filter is used. Phones retain their original portrait composition. The original ribbon sequence still runs at 1.3x speed.
+Each later section now has a distinct full-width painted scene: a flowering garden for the celebration, a blue lake for the countdown, a Lucknow gateway garden for the venue, and a riverside garden for the closing. Cream overlays keep the text readable; no blur is used. The Lucknow painting is decorative heritage artwork, not a depiction of the hotel.
 
-Music is enabled by default: the top-right toggle starts ON, the audio is unmuted, autoplay is attempted immediately, and the attached instrumental loops after playback starts. The toggle now represents the guest's enabled/disabled preference. Its accessible description separately reports whether music is playing or waiting for browser permission.
+Mobile edge-to-edge opening, sharp desktop landscape, English/Hindi switching, calendar files, replay and the first-scroll tour are retained. Reduced-motion guests see the invitation immediately after choosing Open, with music started by the same click. Video failure falls through to the invitation.
 
-If the browser blocks audible autoplay, a real tap/key gesture is still required before sound can play. An ON toggle does not bypass browser policy or falsely mean that audio is already playing. Turning music off prevents later interactions from starting it until the guest turns it on again.
+The invitation copy starts appearing at 75% of actual video playback. The last 25% of the envelope keeps moving while it crossfades into the invitation. Playback progress drives the transition, so slow loading does not shift the timing.
 
-English/हिन्दी switching, the small music toggle, full-width art, Hindi calendar download and the first-scroll tour remain available.
+## Upload to GitHub
 
-## GitHub update
+Extract the ZIP. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
+Upload ALL contents of this folder into the repository root, replacing matching files. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
 
-Extract the ZIP. In https://github.com/atul0902/marriage choose Add file → Upload files.
-Upload ALL folder contents into the repository root, replacing matching files. Include the complete assets folder and language.js/language.css. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or use a private window if old files remain cached.
+No DNS changes are needed. This package has not been published automatically.
 
-No DNS changes. This package is ready to upload and has not been published automatically.
+## Artwork
 
-## Verification
-
-Desktop browser: sharp landscape used behind the opening, zero ambient videos, enabled toggle on fresh load, unmuted audio, off pauses playback and on starts playback. JavaScript syntax and all asset references checked. No blur declarations remain in the website HTML/CSS/JS.
+The four new scenic paintings were created with the built-in image generation tool, using opening-wide.webp as a style reference. Optimized WebP assets are in assets/. The complete prompt set is in SCENERY-PROMPTS.txt.
 
 ## Media provenance
 

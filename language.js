@@ -1,6 +1,8 @@
 /* Complete, reviewed local copy: no translation service or visitor data upload. */
 (()=>{
 const copy=[
+ ['#open-label','Open','खोलें'],
+ ['#open-caption','with love','प्यार से'],
  ['.hero .lucknow-welcome','TOGETHER WITH OUR FAMILIES','परिवार सहित स्नेहिल आमंत्रण'],
  ['.hero .invite-line','With love, we invite you<br>to celebrate our engagement','हमारी सगाई के शुभ अवसर पर<br>आप सादर आमंत्रित हैं।'],
  ['.hero h1','Atul <span>&</span> Astha','अतुल <span>और</span> आस्था'],
@@ -38,6 +40,7 @@ const copy=[
  ['#replay','Replay the invitation opening','आमंत्रण फिर से खोलें']
 ];
 const messages={
+ openingPrompt:['Select the hanging Open tag to unwrap your invitation with music.','संगीत के साथ आमंत्रण खोलने के लिए लटकते टैग को छुएँ।'],
  musicEnabledWaiting:['Music is enabled; your browser may require a tap before playing sound.','संगीत चालू है; आवाज़ शुरू करने के लिए ब्राउज़र में एक बार छूना आवश्यक हो सकता है।'],
  opening:['Unwrapping your invitation…','आपका आमंत्रण खुल रहा है…'],ready:['Your invitation is ready.','आपका आमंत्रण तैयार है।'],
  musicPlaying:['Background music is playing.','पृष्ठभूमि में संगीत बज रहा है।'],musicWaiting:['Music will start after your first tap or scroll.','संगीत शुरू करने के लिए स्क्रीन को एक बार छुएँ।'],musicPaused:['Background music paused.','संगीत रोक दिया गया है।'],
@@ -55,6 +58,7 @@ function apply(next){
  document.title=hi?'अतुल और आस्था · १६ दिसम्बर २०२६':'Atul & Astha · 16 December 2026';
  document.querySelector('meta[name="description"]').content=hi?'अतुल और आस्था के सगाई समारोह में सादर आमंत्रित हैं। १६ दिसम्बर २०२६, प्रातः ११:०० बजे, गोल्डन ट्यूलिप होटल, लखनऊ।':'Join us to celebrate the engagement of Atul and Astha on 16 December 2026 at 11 AM, Golden Tulip Hotel, Lucknow.';
  document.querySelector('.hero-art').setAttribute('aria-label',hi?'फूलों और हाथ से चित्रित इतालवी समुद्र तट से सजा आमंत्रण':'Painted Italian coast with blossom branches and an ivory invitation center');
+ document.getElementById('open-invitation').setAttribute('aria-label',hi?'प्यार से खोलें; आमंत्रण और संगीत शुरू करें':'Open with love; start your invitation and music');
  document.getElementById('countdown').setAttribute('aria-label',hi?'हमारी सगाई तक शेष समय':'Time until our engagement');
  document.querySelector('footer > a').setAttribute('aria-label',hi?'अतुल और आस्था, शुरुआत पर जाएँ':'Atul and Astha, home');
  document.querySelector('.language-switch').setAttribute('aria-label',hi?'आमंत्रण की भाषा':'Invitation language');

@@ -32,3 +32,23 @@ footer .sound .sound-label{display:inline;font-size:11px;letter-spacing:.4px}
  .opening-frame{background:transparent;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
  .hero-original{display:block;position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,calc(100svh * .5625));background:url('assets/opening-end.webp') center/cover no-repeat;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
 }
+
+/* Mobile browser chrome can shorten svh: never derive the film width from it. */
+@media(max-width:600px){
+ .opening-cover{background:var(--paper) url('assets/envelope-poster.jpg') center/cover no-repeat}
+ .opening-frame{position:absolute;inset:0;width:100%;max-width:none;height:100%;margin:0;overflow:hidden;background:url('assets/envelope-poster.jpg') center/cover no-repeat;mask-image:none;-webkit-mask-image:none}
+ #opening-video{inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);object-fit:cover;object-position:center}
+}
+
+/* A paper tag hangs from the bow until the guest opens the invitation. */
+.open-tag{position:absolute;z-index:3;top:59%;left:calc(50% + 16px);width:91px;min-height:139px;border:0;background:none;padding:0;color:#42503c;transform:rotate(-9deg);transform-origin:50% -40px;pointer-events:auto;filter:drop-shadow(2px 5px 5px #30281c35);animation:tag-sway 4s ease-in-out infinite}
+.tag-paper{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:139px;padding:29px 8px 12px;background:repeating-linear-gradient(17deg,#f7f0df 0px,#f9f3e8 1px,#f7f0df 3px);clip-path:polygon(22% 0,78% 0,100% 17%,100% 100%,0 100%,0 17%);border-bottom:1px solid #ab9665}
+.tag-cord{position:absolute;height:55px;width:16px;left:40px;top:-43px;border-left:2px solid #c0af89;border-right:1px solid #f8f3e6;border-radius:50%;transform:rotate(12deg)}
+.tag-eyelet{position:absolute;top:10px;left:calc(50% - 4px);width:8px;height:8px;border:2px solid #b8a16e;border-radius:50%;background:#d6ccb5;box-shadow:0 0 0 2px #e8deca}
+#open-label{font:italic 29px/1.1 var(--serif)}#open-caption{font:400 8px/1.5 var(--sans);letter-spacing:1px;margin-top:7px}.tag-flower{font-size:22px;line-height:1.2;margin-top:7px;color:var(--gold)}
+.opening-started .open-tag{animation:none;opacity:0;transform:translateY(24px) rotate(-18deg);transition:opacity .2s,transform .35s;pointer-events:none}
+.open-tag:focus-visible{outline:3px solid #344637;outline-offset:8px}.open-tag:hover{filter:drop-shadow(3px 7px 6px #30281c55)}
+html:lang(hi) #open-label{font-size:24px;font-style:normal}html:lang(hi) #open-caption{font-size:10px;letter-spacing:0}
+@keyframes tag-sway{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(-5deg)}}
+@media(max-height:600px){.open-tag{top:58%;min-height:118px;width:80px}.tag-paper{min-height:118px}#open-label{font-size:25px}.tag-cord{left:35px}}
+@media(prefers-reduced-motion:reduce){.open-tag{animation:none}}
