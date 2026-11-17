@@ -1,30 +1,30 @@
-# Atul & Astha — mobile invitation with satin ribbon
+# Atul & Astha — automatic woven-ribbon opening
 
-Engagement: 16 December 2026, 11 AM IST, Golden Tulip Hotel, Lucknow.
+## This revision
 
-Tap the satin bow to untie the ribbon and reveal the invitation. Mobile-first typography, 44–50px touch targets, compressed responsive WebP artwork, keyboard focus management and reduced-motion support are included. No installation or build is needed.
+- Automatically opens after the opening artwork loads, with a short pause so the tied bow is visible. There is no opening button or visible prompt.
+- Original image-based ivory woven fabric with fine fibers and frayed edges replaces the shiny vector bow.
+- Italian coastal fresco exterior and invitation frame replace the Lucknow painting on the opening screen. The venue remains Golden Tulip Hotel, Lucknow.
+- The ribbon parts release, the upper flap lifts in perspective, and the lower front panel folds down. There are no side-opening pages.
+- After opening, the front page stays still. The first downward scroll/swipe starts a slow 16–32 second scroll to the bottom. A subsequent scroll gesture, touch, click or key stops it; Escape also stops it.
+- Reduced-motion preferences skip the entrance motion and guided scroll. Normal manual scrolling remains available. Music remains optional.
 
-## Update your existing GitHub site
+This is a recreation from reference footage, with original assets and code, not the original animation source.
 
-1. Extract the ZIP.
-2. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
-3. Upload index.html, style.css, script.js and the assets folder from this package to the repository root. Replace the existing files with the same names; do not upload the enclosing folder or ZIP itself. Drag the assets folder to preserve its paths.
-4. Commit to main. GitHub Pages will redeploy automatically using your existing main / (root) configuration.
-5. After the deployment finishes in Actions, refresh atulastha.com. If your phone still shows the old version, try a private browser tab or clear that site's cached files.
+## Update GitHub
 
-There are NO DNS changes for this update. Keep your existing Namecheap records and GitHub Pages custom domain. CNAME is included with the same atulastha.com value. The calendar file is unchanged.
+Extract this ZIP. In https://github.com/atul0902/marriage choose Add file → Upload files.
+Upload index.html, style.css, opening.css, script.js, ribbon.js and the assets folder to the repository ROOT, replacing files of the same names. Drag the assets folder itself so paths are preserved. Do not upload only the enclosing folder or ZIP.
+Commit to main. Wait for GitHub Pages deployment to finish in Actions, then refresh atulastha.com. A private browser window helps if old files were cached.
 
-Required new assets: assets/lucknow-640.webp, assets/lucknow-1024.webp and assets/chikankari.svg. Old PNG files may remain in GitHub; this version does not request them.
+No DNS changes. Keep your current Pages domain and Namecheap records. CNAME remains atulastha.com; engagement.ics is unchanged. Older PNG/WebP files may remain in the repository; this version does not reference them.
 
-## Files
+The files are ready for upload; packaging does not update the live GitHub site.
 
-- index.html — invitation content and satin ribbon markup
-- style.css — responsive layout, silk appearance and release animation
-- script.js — opening/replay, countdown, optional music and sharing
-- engagement.ics — calendar download
-- assets/ — responsive artwork and motif
-- CNAME — existing custom domain
+## Files and verification
 
-The current artwork was edited with built-in ImageGen; its prompt is retained in artwork-prompt-lucknow.txt. WebP versions are compressed exports of that artwork. The ribbon is made with CSS, with no video download or animation library.
+index.html — content; style.css — mobile layout; opening.css — the two paper faces and fabric layers; ribbon.js — image-layer ribbon motion; script.js — automatic startup, sequencing, replay, guided scroll and existing invitation features.
 
-The opening/replay was checked in the browser, with no horizontal overflow at 320, 375, 390, 430, 768 and 1440 pixels. This does not replace a physical iPhone/Android device check. The website itself has not been republished to GitHub by creating this package.
+Checked automatic entry, no opening button, two folds, no horizontal overflow at 320px and 390px, and first-scroll activation/stopping in the browser. Physical-device touch rendering should also be reviewed before sending to guests.
+
+Original raster assets were created with the built-in ImageGen tool. See ASSET-PROMPTS.txt for briefs. No video of another invitation is embedded. Fabric is matte woven silk/chiffon with frayed threads; it is not a shiny satin rendering.

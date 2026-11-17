@@ -1,0 +1,7 @@
+Built-in ImageGen; project assets compressed to WebP.
+
+linen-ribbon.webp: Photorealistic isolated ivory hand-torn silk chiffon ribbon on transparent background. Vertical full-height band tied in a relaxed centered bow. Matte fine visible weave, translucent crinkled fabric, ragged selvedges with individual loose threads, floppy asymmetric loops and torn straight tails. Diffuse overhead studio daylight. No shiny satin, plastic, logo, seal, text, background or floor shadow.
+
+coast-cover-{640,1024}.webp: Full-bleed original portrait Italian coastal fresco, painterly gouache/oil texture. Amalfi pastel hillside houses lower left, rocky cliffs, cobalt sea with small boats lower right, pale lavender clouded sky upper half, white and blush blossoms and olive leaves at corners. Flat print without ribbon, folds, words, people or phone.
+
+coast-inner-{640,1024}.webp: Portrait Italian coastal painted invitation frame. Large empty pale lavender ivory irregular oval/arch center for HTML text. Blossom branches top left, pastel cloudy sky upper/right edges, Amalfi houses on cliffs lower left, blue Mediterranean sea and tiny sailboat bottom right, pink/white flowers in bottom corners. Oil impasto/fresco texture. No lettering, phone, people, ribbon or border line.

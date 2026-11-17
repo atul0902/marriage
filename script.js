@@ -1,16 +1,28 @@
 const cover=document.getElementById('cover');
-const openButton=document.getElementById('open');
 const pageContent=[document.querySelector('header'),document.querySelector('main'),document.querySelector('footer')];
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-let opening=false,openingTimer;
+const ribbon=new ClothRibbon(document.querySelector('.fabric-stage'));
+let opening=false,runId=0,timers=[],animations=[],scrollFrame=0,scrollArmed=false,touchStartY=null,lastWheelTime=0;
 function lockPage(locked){document.body.classList.toggle('cover-active',locked);pageContent.forEach(el=>{el.inert=locked})}
-function showInvitation(){if(opening)return;opening=true;openButton.disabled=true;cover.classList.add('is-opening');openingTimer=setTimeout(()=>{cover.hidden=true;cover.setAttribute('aria-hidden','true');lockPage(false);document.querySelector('.monogram').focus({preventScroll:true});opening=false},reducedMotion.matches?0:1750)}
-function replayInvitation(){clearTimeout(openingTimer);window.scrollTo({top:0,behavior:'instant'});opening=false;openButton.disabled=false;cover.hidden=false;cover.removeAttribute('aria-hidden');cover.classList.remove('is-opening');lockPage(true);openButton.focus({preventScroll:true})}
+function stopGuidedScroll(){if(scrollFrame)cancelAnimationFrame(scrollFrame);scrollFrame=0}
+function finishOpening(id){if(id!==runId)return;timers.forEach(clearTimeout);timers=[];cover.hidden=true;lockPage(false);document.body.classList.add('invitation-visible');opening=false;document.getElementById('opening-status').textContent='Your invitation is ready.';scrollArmed=!reducedMotion.matches}
+function fold(selector,angle,duration,delay){const el=cover.querySelector(selector);if(!el.animate)return Promise.resolve();const a=el.animate([{transform:'rotateX(0deg)'},{transform:'rotateX('+angle+'deg)'}],{duration,delay,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});animations.push(a);const shade=el.querySelector('.fold-light').animate([{opacity:0},{opacity:.5,offset:.5},{opacity:.08}],{duration,delay,fill:'forwards'});animations.push(shade);return a.finished.catch(()=>{})}
+async function showInvitation(){if(opening)return;opening=true;const id=++runId;try{if(reducedMotion.matches){finishOpening(id);return}cover.dataset.phase='untying';await ribbon.play();if(id!==runId)return;cover.dataset.phase='unfolding';const folds=[fold('.flap-top',165,1900,0),fold('.flap-bottom',-165,1700,1700)];timers.push(setTimeout(()=>{if(id===runId)document.body.classList.add('invitation-visible')},2150));await Promise.all(folds);if(id!==runId)return;cover.dataset.phase='revealed';const fade=cover.animate([{opacity:1},{opacity:0}],{duration:400,fill:'forwards'});animations.push(fade);await fade.finished.catch(()=>{})}catch(error){}finally{finishOpening(id)}}
+function replayInvitation(){++runId;timers.forEach(clearTimeout);animations.forEach(a=>a.cancel());timers=[];animations=[];ribbon.reset();stopGuidedScroll();scrollArmed=false;opening=false;window.scrollTo({top:0,behavior:'instant'});document.body.classList.remove('invitation-visible');cover.hidden=false;delete cover.dataset.phase;lockPage(true);document.getElementById('opening-status').textContent='Unwrapping your invitation…';timers.push(setTimeout(showInvitation,400))}
+function beginGuidedScroll(){if(!scrollArmed||opening||reducedMotion.matches)return;scrollArmed=false;const startY=window.scrollY;const target=document.documentElement.scrollHeight-innerHeight;const distance=target-startY;if(distance<100)return;const duration=Math.max(16000,Math.min(32000,distance/90*1000));let start;function frame(now){if(start===undefined)start=now;const p=Math.min(1,(now-start)/duration);const eased=p<.12? p*p/.24 :p>.88?.88-(1-p)*(1-p)/.24:p-.06;const normalized=eased/.88;window.scrollTo({top:startY+distance*Math.min(1,normalized),behavior:'instant'});if(p<1)scrollFrame=requestAnimationFrame(frame);else scrollFrame=0}scrollFrame=requestAnimationFrame(frame)}
+window.addEventListener('wheel',event=>{const now=performance.now();const newGesture=now-lastWheelTime>180;lastWheelTime=now;if(scrollFrame){if(newGesture){stopGuidedScroll();return}event.preventDefault();return}if(scrollArmed&&event.deltaY>0){event.preventDefault();beginGuidedScroll()}},{passive:false});
+window.addEventListener('touchstart',event=>{touchStartY=event.touches[0].clientY;if(scrollFrame)stopGuidedScroll()},{passive:true});
+window.addEventListener('touchmove',event=>{if(scrollFrame){event.preventDefault();return}if(scrollArmed&&touchStartY!==null&&touchStartY-event.touches[0].clientY>12){event.preventDefault();beginGuidedScroll()}},{passive:false});
+window.addEventListener('keydown',event=>{if(event.key==='Escape'){stopGuidedScroll();if(opening){++runId;animations.forEach(a=>a.cancel());ribbon.reset();finishOpening(runId)}return}if(scrollFrame){stopGuidedScroll();return}if(scrollArmed&&['ArrowDown','PageDown',' '].includes(event.key)&&!event.target.closest('button,a,input,textarea,select')){event.preventDefault();beginGuidedScroll()}});
+window.addEventListener('pointerdown',()=>{if(scrollFrame)stopGuidedScroll()},{passive:true});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopGuidedScroll()});
+reducedMotion.addEventListener('change',()=>{stopGuidedScroll();if(reducedMotion.matches)scrollArmed=false});
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+window.scrollTo({top:0,behavior:'instant'});
 lockPage(true);
-openButton.addEventListener('click',showInvitation);
 document.getElementById('replay').addEventListener('click',replayInvitation);
-cover.addEventListener('keydown',event=>{if(event.key==='Tab'){event.preventDefault();openButton.focus()}if(event.key==='Escape')showInvitation()});
-openButton.focus({preventScroll:true});
+async function startOnLoad(){const small=innerWidth<=600;await Promise.race([Promise.all(['assets/linen-ribbon.webp',small?'assets/coast-cover-640.webp':'assets/coast-cover-1024.webp'].map(src=>new Promise(resolve=>{const img=new Image();img.onload=resolve;img.onerror=resolve;img.src=src}))),new Promise(resolve=>setTimeout(resolve,2500))]);timers.push(setTimeout(showInvitation,550))}
+startOnLoad();
 let audioContext,masterGain,musicPlaying=false,musicTimer;
 const sound=document.getElementById('sound');
 function setSoundState(){sound.setAttribute('aria-pressed',String(musicPlaying));sound.setAttribute('aria-label',musicPlaying?'Pause gentle background music':'Play gentle background music');sound.querySelector('.sound-label').textContent=musicPlaying?'Music on':'Music off';}
