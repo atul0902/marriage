@@ -36,7 +36,7 @@ async function finishOpening(reason='ended'){
   if(id!==runId)return;
   cover.hidden=true;lockPage(false);locale.status('opening-status','ready');
   // Let guests read the cover first, then tour the invitation at an easy pace.
-  if(!reducedMotion.matches){tour.autoplay(4000);if(document.hidden)tour.suspend()}else tour.stop('paused');
+  if(!reducedMotion.matches){tour.autoplay(2500);if(document.hidden)tour.suspend()}else tour.stop('paused');
  }
 }
 async function startOpening(){
