@@ -1,30 +1,46 @@
-# Atul & Astha — automatic woven-ribbon opening
+# Atul & Astha — reference opening + fixed scroll tour
 
-## This revision
+Engagement: 16 December 2026 · 11 AM IST · Golden Tulip Hotel, Lucknow.
 
-- Automatically opens after the opening artwork loads, with a short pause so the tied bow is visible. There is no opening button or visible prompt.
-- Original image-based ivory woven fabric with fine fibers and frayed edges replaces the shiny vector bow.
-- Italian coastal fresco exterior and invitation frame replace the Lucknow painting on the opening screen. The venue remains Golden Tulip Hotel, Lucknow.
-- The ribbon parts release, the upper flap lifts in perspective, and the lower front panel folds down. There are no side-opening pages.
-- After opening, the front page stays still. The first downward scroll/swipe starts a slow 16–32 second scroll to the bottom. A subsequent scroll gesture, touch, click or key stops it; Escape also stops it.
-- Reduced-motion preferences skip the entrance motion and guided scroll. Normal manual scrolling remains available. Music remains optional.
+## What changed
 
-This is a recreation from reference footage, with original assets and code, not the original animation source.
+The opening now plays the actual eight-second envelope/ribbon film served by the public Fresco demo, at its original speed. It no longer tries to imitate that sequence with generated fabric pieces or CSS paper flaps. The final blank frame is retained as the invitation background, so your own names and details fade into the same scene.
 
-## Update GitHub
+It starts automatically, muted and inline, without an opening button. The invitation stays on its front page after the film ends. Replay is available in the footer. Browsers that block muted autoplay, or users who request reduced motion, receive the invitation without getting stuck behind the opening.
 
-Extract this ZIP. In https://github.com/atul0902/marriage choose Add file → Upload files.
-Upload index.html, style.css, opening.css, script.js, ribbon.js and the assets folder to the repository ROOT, replacing files of the same names. Drag the assets folder itself so paths are preserved. Do not upload only the enclosing folder or ZIP.
-Commit to main. Wait for GitHub Pages deployment to finish in Actions, then refresh atulastha.com. A private browser window helps if old files were cached.
+## First-scroll fix
 
-No DNS changes. Keep your current Pages domain and Namecheap records. CNAME remains atulastha.com; engagement.ics is unchanged. Older PNG/WebP files may remain in the repository; this version does not reference them.
+The first downward wheel, swipe, keyboard scroll or native page-scroll starts a slow tour to the bottom after that gesture settles. The controller waits for touchend and native momentum; it does not prevent the initial touch gesture or cancel itself on its own scroll events.
 
-The files are ready for upload; packaging does not update the live GitHub site.
+The tour uses a numeric scrollTo call with CSS smooth-scrolling disabled while animating, avoiding mobile-browser differences with the earlier instant option. A fresh touch, mouse wheel, click or key pauses it so a guest can take control. Replay resets and re-arms it.
 
-## Files and verification
+## Upload this revision to GitHub
 
-index.html — content; style.css — mobile layout; opening.css — the two paper faces and fabric layers; ribbon.js — image-layer ribbon motion; script.js — automatic startup, sequencing, replay, guided scroll and existing invitation features.
+Open https://github.com/atul0902/marriage → Add file → Upload files.
+Upload these files to the repository root, replacing older copies:
 
-Checked automatic entry, no opening button, two folds, no horizontal overflow at 320px and 390px, and first-scroll activation/stopping in the browser. Physical-device touch rendering should also be reviewed before sending to guests.
+- index.html
+- style.css
+- opening.css
+- script.js
+- tour.js (NEW — essential for the scroll fix)
+- assets folder (NEW video, poster and final frame must be included)
 
-Original raster assets were created with the built-in ImageGen tool. See ASSET-PROMPTS.txt for briefs. No video of another invitation is embedded. Fabric is matte woven silk/chiffon with frayed threads; it is not a shiny satin rendering.
+Commit to main, wait for Pages deployment in Actions, then open atulastha.com. No Namecheap/DNS changes are needed. If an old revision remains cached, try a private browser tab. The HTML references versioned CSS and JavaScript for this update.
+
+CNAME remains atulastha.com and the calendar is unchanged. The old ribbon.js and old generated artwork may remain in your repository; this version does not load them.
+
+This folder and ZIP are ready for upload. Creating them does not publish to GitHub.
+
+## Media provenance
+
+Reference design: The Digital Yes — Fresco, https://www.thedigitalyes.com/demo/fresco
+Public interactive demo: https://fresco-template.thedigitalyes.com/?embed=1
+Opening video: https://fresco-template.thedigitalyes.com/assets/envelope-video-f1CdBR2C.mp4
+Poster: https://fresco-template.thedigitalyes.com/assets/envelope-poster-dG0TpNIf.jpg
+
+The reference opening media is reused to match the specific opening requested; it is not claimed as original generated artwork. The final frame is an export from that same animation. Personal event content and surrounding invitation code belong to this project.
+
+## Verification
+
+Seven controller integration checks cover wheel momentum, touch/pointer sequencing, native-scroll fallback, keyboard activation, stopping on new input, re-arming and reaching the exact document bottom. Browser checks additionally verify automatic video playback, completion, idle front page and continuous scroll through the full page. Physical Safari/Android touch should be reviewed before sending widely.
