@@ -1,6 +1,6 @@
 /* Each section has its own full-width painted landscape, without blur. */
 .intro,.countdown-section,.venue,.closing{position:relative;isolation:isolate;background-position:center;background-size:cover;background-repeat:no-repeat;overflow:hidden}
-.intro{background-image:url('assets/celebration-garden.webp')}.countdown-section{background-image:url('assets/countdown-lake.webp')}.venue{background-image:url('assets/venue-lucknow.webp')}.closing{background-image:url('assets/closing-garden.webp')}
+.intro.scenery-ready{background-image:url('assets/celebration-garden.perf.webp')}.countdown-section.scenery-ready{background-image:url('assets/countdown-lake.perf.webp')}.venue.scenery-ready{background-image:url('assets/venue-lucknow.perf.webp')}.closing.scenery-ready{background-image:url('assets/closing-garden.perf.webp')}
 .intro:before,.venue:before,.closing:before{content:'';position:absolute;z-index:-1;inset:0;width:auto;opacity:1;background:linear-gradient(90deg,#faf5eb15,#faf5ebe8 25%,#faf5ebf2 50%,#faf5ebe8 75%,#faf5eb15);pointer-events:none}
 .closing:after{display:none}.intro .body-copy,.venue address,.closing>p:not(.eyebrow):not(.signature){color:#4e5947}.venue-card{background:#faf5ebe6;box-shadow:0 10px 40px #34463718}
 .countdown-section{padding-block:80px;color:var(--paper)}.fine-frame{max-width:760px;margin-inline:auto;background:#253e34ed;box-shadow:0 12px 45px #172c2940}
@@ -9,4 +9,11 @@
  .intro,.venue,.closing{padding-block:85px;background-position:center bottom}
  .intro:before,.venue:before,.closing:before{background:linear-gradient(90deg,#faf5eb3d,#faf5ebe8 12%,#faf5ebf0 50%,#faf5ebe8 88%,#faf5eb3d)}
  .countdown-section{padding-block:85px}.fine-frame{padding-inline:12px}.venue{background-position:70% center}.venue-card{background:#faf5ebe8}.closing{padding-bottom:60px}
+}
+
+@media(max-width:600px){
+.intro.scenery-ready{background-image:url('assets/celebration-garden-mobile.perf.webp')}
+.countdown-section.scenery-ready{background-image:url('assets/countdown-lake-mobile.perf.webp')}
+.venue.scenery-ready{background-image:url('assets/venue-lucknow-mobile.perf.webp')}
+.closing.scenery-ready{background-image:url('assets/closing-garden-mobile.perf.webp')}
 }

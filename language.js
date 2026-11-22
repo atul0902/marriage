@@ -53,6 +53,11 @@ function t(key){return messages[key]?.[language==='hi'?1:0]??key}
 function status(id,key){const el=document.getElementById(id);if(el){el.dataset.messageKey=key;el.textContent=t(key)}}
 function apply(next){
  language=next==='hi'?'hi':'en';const hi=language==='hi';document.documentElement.lang=language;
+ if(hi&&!document.getElementById('hindi-fonts')){
+  const fonts=document.createElement('link');fonts.id='hindi-fonts';fonts.rel='stylesheet';
+  fonts.href='https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500&family=Noto+Serif+Devanagari:wght@400;500&display=swap';
+  document.head.appendChild(fonts);
+ }
  copy.forEach(([selector,en,hindi])=>document.querySelectorAll(selector).forEach(el=>{el.innerHTML=hi?hindi:en}));
  document.title=hi?'आस्था और अतुल · १६ दिसम्बर २०२६':'Astha & Atul · 16 December 2026';
  document.querySelector('meta[name="description"]').content=hi?'आस्था एवं अतुल के सगाई समारोह में सपरिवार पधारकर आशीर्वाद दें। १६ दिसम्बर २०२६, प्रातः १०:३० बजे, गोल्डन ट्यूलिप होटल, लखनऊ।':'Join us to celebrate the engagement of Astha and Atul on 16 December 2026 at 10:30 AM, Golden Tulip Hotel, Lucknow.';

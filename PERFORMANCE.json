@@ -1,0 +1,62 @@
+{
+  "aa-logo.perf.webp": {
+    "before": 538931,
+    "after": 15950,
+    "width": 256
+  },
+  "envelope-poster.perf.webp": {
+    "before": 188704,
+    "after": 104922,
+    "width": 720
+  },
+  "opening-end.perf.webp": {
+    "before": 112514,
+    "after": 67930,
+    "width": 720
+  },
+  "opening-wide.perf.webp": {
+    "before": 487572,
+    "after": 245044,
+    "width": 1440
+  },
+  "celebration-garden.perf.webp": {
+    "before": 559336,
+    "after": 378414,
+    "width": 1440
+  },
+  "celebration-garden-mobile.perf.webp": {
+    "before": 559336,
+    "after": 182662,
+    "width": 960
+  },
+  "countdown-lake.perf.webp": {
+    "before": 471040,
+    "after": 309072,
+    "width": 1440
+  },
+  "countdown-lake-mobile.perf.webp": {
+    "before": 471040,
+    "after": 151484,
+    "width": 960
+  },
+  "venue-lucknow.perf.webp": {
+    "before": 491350,
+    "after": 335258,
+    "width": 1440
+  },
+  "venue-lucknow-mobile.perf.webp": {
+    "before": 491350,
+    "after": 166148,
+    "width": 960
+  },
+  "closing-garden.perf.webp": {
+    "before": 514884,
+    "after": 342944,
+    "width": 1440
+  },
+  "closing-garden-mobile.perf.webp": {
+    "before": 514884,
+    "after": 163080,
+    "width": 960
+  }
+}
