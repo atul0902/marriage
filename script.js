@@ -5,16 +5,6 @@ const pageContent=[document.querySelector('main'),document.querySelector('footer
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const tour=new InvitationTour();
 const openTag=document.getElementById('open-invitation');
-let sceneryObserver=null;
-function prepareScenery(){
- if(sceneryObserver)return;
- const sections=document.querySelectorAll('.intro,.countdown-section,.venue,.closing');
- if(!('IntersectionObserver' in window)){sections.forEach(section=>section.classList.add('scenery-ready'));return}
- sceneryObserver=new IntersectionObserver(entries=>{
-  for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('scenery-ready');sceneryObserver.unobserve(entry.target)}
- },{rootMargin:'450px 0px'});
- sections.forEach(section=>sceneryObserver.observe(section));
-}
 let invitationActivated=false;
 let opening=false,runId=0,fallbackTimer=0,fadeAnimation=null,revealStarted=false,revealFrame=0;
 const revealProgress=.75;
@@ -44,7 +34,7 @@ async function finishOpening(reason='ended'){
  openingVideo.pause();document.body.classList.add('invitation-visible');cover.dataset.openingState=reason;
  try{if(!reducedMotion.matches&&cover.animate){if(!fadeAnimation)fadeAnimation=cover.animate([{opacity:1},{opacity:0}],{duration:350,fill:'forwards'});await fadeAnimation.finished.catch(()=>{})}}finally{
   if(id!==runId)return;
-  cover.hidden=true;lockPage(false);prepareScenery();locale.status('opening-status','ready');
+  cover.hidden=true;lockPage(false);locale.status('opening-status','ready');
   // Let guests read the cover first, then tour the invitation at an easy pace.
   if(!reducedMotion.matches){tour.autoplay(1500);if(document.hidden)tour.suspend()}else tour.stop('paused');
  }
@@ -52,7 +42,7 @@ async function finishOpening(reason='ended'){
 async function startOpening(){
  const id=++runId;tour.stop('idle');cancelRevealFrame();revealStarted=false;opening=true;cover.hidden=false;
  if(fadeAnimation){fadeAnimation.cancel();fadeAnimation=null}
- document.body.classList.remove('invitation-visible');document.body.classList.add('opening-started','hero-prepared');openTag.disabled=true;lockPage(true);jumpToTop();
+ document.body.classList.remove('invitation-visible');document.body.classList.add('opening-started');openTag.disabled=true;lockPage(true);jumpToTop();
  locale.status('opening-status','opening');
  cover.dataset.openingState='loading';
  openingVideo.muted=true;openingVideo.defaultMuted=true;openingVideo.playsInline=true;

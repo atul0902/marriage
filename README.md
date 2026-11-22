@@ -1,12 +1,6 @@
-# Faster mobile invitation
+Restored from the version before the performance and music-prebuffer changes. Original imagery, font loading and music loading are restored. The 1.5-second initial scroll and four-second touch pause remain.
 
-The first screen now loads fewer assets. The AA logo is reduced from 538,931 bytes to 15,950 bytes (97% smaller). The supplied design is retained through delivery-size optimization rather than redrawing it. Scenic sections have separate lighter mobile images and load as they approach the viewport after the opening. The music does not download before the guest opens the tag. Hindi fonts load on first Hindi selection; English fonts no longer block the first render. The revealed front-page art is prepared when the tag opens. Original ribbon video and supplied music are retained.
-
-Verified in Chrome: initial server requests contain the poster, logo and opening video but no music, revealed portrait or lower-page scenery. Music starts on the Open tap. Scenes request their art progressively during automatic scrolling. Narrow-screen artwork and Hindi copy were checked. All 19 scroll-controller integration tests passed. No field speed score or slow-network timing is claimed.
-
-The 1.5-second initial auto-scroll delay, four-second pause/resume on touch, 75% text reveal, English/Hindi copy, 10:30 AM timing and family sign-off are preserved. Upload ALL extracted contents directly to the repository root, replacing matching files. Include every new .perf.webp image in assets/. No DNS changes.
-
-This package has not been published automatically. PERFORMANCE.json records the source and optimized image byte sizes.
+# Astha & Atul · Monogram opening tag
 
 The front-page names now display Astha above Atul, and आस्था above अतुल in Hindi.
 
@@ -24,7 +18,7 @@ After the opening finishes, the front page stays still for 1.5 seconds. The invi
 
 The bride’s name appears first in the invitation, page title, sharing text and calendar files. Hindi uses its own warm invitation wording. The city line is “Lucknow — The city of love” / “लखनऊ — मोहब्बत का शहर”. The English/हिन्दी switch and music toggle remain in the top-right corner.
 
-The supplied transparent monogram replaces the ornament on the opening tag, the front-page flourish, the celebration ornament, the venue emblem, the closing ornament and the footer initials. The letters and gold connecting stroke are isolated on a transparent background in assets/aa-logo.perf.webp, with the flowers and rectangular background removed. The cutout was prepared with the built-in image editing tool; its prompt is in MONOGRAM-PROMPT.txt.
+The supplied transparent monogram replaces the ornament on the opening tag, the front-page flourish, the celebration ornament, the venue emblem, the closing ornament and the footer initials. The letters and gold connecting stroke are isolated on a transparent background in assets/aa-monogram-transparent.png, with the flowers and rectangular background removed. The cutout was prepared with the built-in image editing tool; its prompt is in MONOGRAM-PROMPT.txt.
 
 The English celebration heading reads “For our little hearts that found home in each other.”. The independently written Hindi invitation is retained.
 
@@ -32,12 +26,12 @@ The closing sign-off reads “With love, Chauhan Family and Singh Family”, wit
 
 The engagement begins at 10:30 AM IST on 16 December 2026 (प्रातः १०:३० बजे). This time is used in both languages, sharing text, the countdown and calendar downloads.
 
-The initial automatic scroll begins 1.5 seconds after the envelope finishes opening. Touch-to-pause still resumes after four seconds of inactivity. The transparent AA logo is included at assets/aa-logo.perf.webp and preloaded for all six placements.
+The initial automatic scroll begins 1.5 seconds after the envelope finishes opening. Touch-to-pause still resumes after four seconds of inactivity. The transparent AA logo is included at assets/aa-monogram-transparent.png and preloaded for all six placements.
 
 ## Upload to GitHub
 
 Extract the ZIP. Open https://github.com/atul0902/marriage and choose Add file → Upload files.
-Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-fast folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
+Upload ALL contents of this folder into the repository root, replacing matching files. Do not upload the enclosing atulastha-restored folder as a subfolder: index.html, script.js and tour.js must be directly in the repository root. Include scenery.css and the complete assets folder. Commit to main and wait for GitHub Pages deployment in Actions. Refresh the site or open a private window if older files remain cached.
 
 No DNS changes are needed. This package has not been published automatically.
 

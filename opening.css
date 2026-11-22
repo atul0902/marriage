@@ -1,4 +1,4 @@
-:root{--art:url('assets/opening-end.perf.webp')}
+:root{--art:url('assets/opening-end.webp')}
 .opening-cover{position:fixed;inset:0;z-index:30;background:var(--paper);pointer-events:none;overflow:hidden}.opening-cover[hidden]{display:none}
 .opening-frame{width:min(100%,calc(100svh * .5625));height:100%;margin:auto;position:relative;background:#f2ece5}
 #opening-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -21,22 +21,22 @@ footer .sound .sound-label{display:inline;font-size:11px;letter-spacing:.4px}
 .hero-art:before{display:none!important}
 .hero-art:after{background:linear-gradient(transparent 96%,var(--paper) 100%)}
 @media(min-width:601px){
- .hero-art{background-image:url('assets/opening-wide.perf.webp');background-size:cover;background-position:center}
- .opening-cover{background:var(--paper) url('assets/opening-wide.perf.webp') center/cover no-repeat}
+ .hero-art{background-image:url('assets/opening-wide.webp');background-size:cover;background-position:center}
+ .opening-cover{background:var(--paper) url('assets/opening-wide.webp') center/cover no-repeat}
 }
 
 /* Sharp extended scenery remains visible throughout the opening. No blur layer. */
 .hero-original{display:none}
 @media(min-width:601px){
- .opening-cover{background:var(--paper) url('assets/opening-wide.perf.webp') center/cover no-repeat}
+ .opening-cover{background:var(--paper) url('assets/opening-wide.webp') center/cover no-repeat}
  .opening-frame{background:transparent;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
- .hero-original{display:block;position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,calc(100svh * .5625));background:url('assets/opening-end.perf.webp') center/cover no-repeat;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
+ .hero-original{display:block;position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,calc(100svh * .5625));background:url('assets/opening-end.webp') center/cover no-repeat;mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
 }
 
 /* Mobile browser chrome can shorten svh: never derive the film width from it. */
 @media(max-width:600px){
- .opening-cover{background:var(--paper) url('assets/envelope-poster.perf.webp') center/cover no-repeat}
- .opening-frame{position:absolute;inset:0;width:100%;max-width:none;height:100%;margin:0;overflow:hidden;background:url('assets/envelope-poster.perf.webp') center/cover no-repeat;mask-image:none;-webkit-mask-image:none}
+ .opening-cover{background:var(--paper) url('assets/envelope-poster.jpg') center/cover no-repeat}
+ .opening-frame{position:absolute;inset:0;width:100%;max-width:none;height:100%;margin:0;overflow:hidden;background:url('assets/envelope-poster.jpg') center/cover no-repeat;mask-image:none;-webkit-mask-image:none}
  #opening-video{inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);object-fit:cover;object-position:center}
 }
 
@@ -56,6 +56,3 @@ html:lang(hi) #open-label{font-size:24px;font-style:normal}html:lang(hi) #open-c
 /* One transparent monogram across the whole invitation. */
 .site-monogram{display:block;width:48px;max-width:100%;height:auto;margin-inline:auto}
 .hero .flourish .site-monogram{width:36px;margin-block:6px}.ornament .site-monogram{width:48px}.closing-flower{display:block}.closing-flower .site-monogram{width:72px;margin-bottom:20px}.arch .site-monogram{width:88px}footer>a .site-monogram{width:48px}
-
-/* Prepare the revealed art only after the guest opens the invitation. */
-body:not(.hero-prepared) .hero-art,body:not(.hero-prepared) .hero-original{background-image:none}
